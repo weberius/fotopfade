@@ -1,50 +1,52 @@
-# User-Story-010-TASK-003: Bootstrap-3-CSS-Klassen in index.html migrieren
+# User-Story-010-TASK-003: Bootstrap-3-CSS-Klassen in Inhaltskomponenten migrieren
 
 ## Zugehörige Story
 User-Story-010 – Upgrade auf Bootstrap 5
 
 ## Beschreibung
-In `index.html` werden alle Bootstrap-3-spezifischen CSS-Klassen auf ihre Bootstrap-5-Entsprechungen migriert.
-Betroffen sind Paneel-, Modal-Header-, Button- und Sichtbarkeitsklassen.
+In `index.html` werden veraltete Bootstrap-3-CSS-Klassen in der Sidebar und den Nutzdaten-Bereichen
+auf ihre Bootstrap-5-Entsprechungen umgestellt. Modal-Buttons werden in TASK-002 behandelt,
+die Navbar-Struktur in TASK-004.
 
 ## Technische Details
 - Betroffene Datei: `index.html`
-- Vollständige Migrations-Tabelle für die vorhandenen Klassen:
+- Vollständige Migrations-Tabelle:
 
-  | Bootstrap 3 | Bootstrap 5 | Stellen |
+  | Bootstrap 3 | Bootstrap 5 | Element / Kontext |
   |---|---|---|
-  | `.panel.panel-default` | `.card` | Sidebar (`#features`) |
-  | `.panel.panel-primary` | `.card` | Modal-Inhalts-Divs |
+  | `.panel.panel-default` | `.card` | Sidebar `#features` |
   | `.panel-heading` | `.card-header` | Sidebar |
-  | `.panel-title` | `.card-title` oder `<h5>` | Sidebar |
-  | `.btn-default` | `.btn-secondary` | alle Schliessen-Buttons |
+  | `.panel-title` | `.card-title` | Sidebar |
+  | `.panel.panel-primary` | `.card` | Inhaltsdivs in Modal-Bodys (`expectModal`, `aboutModal`, `featuresModal`, `linksModal`, `disclaimerModal`, `fImpressumLi`, `fDisclaimerLi`, `fDatenschutzLi`, `fCoffeeLi`, `attributionModalLi`) |
   | `.btn-xs` | `.btn-sm` | `#sidebar-hide-btn` |
+  | `.btn-default` | `.btn-secondary` | `#sidebar-hide-btn` |
   | `.pull-right` | `.float-end` | `#sidebar-hide-btn` |
-  | `.hidden-xs` | `.d-none .d-sm-inline` | `#list-btn` in Navbar |
-  | `.visible-xs` | `.d-inline .d-sm-none` | `.navbar-icon-container > a` |
-  | `.tab-pane.fade.active.in` | `.tab-pane.fade.show.active` | `#expectModal` (erste Tab) |
-  | `.nav-justified` | `.nav-fill` oder `.nav-justified` (BS5 hat `nav-justified`) | `#aboutTabsHeader` |
+  | `.hidden-xs` | `.d-none.d-sm-inline` | `#list-btn` (Navbar-Listeneintrag) |
+  | `.visible-xs` | `.d-inline.d-sm-none` | `.navbar-icon-container > a` |
+  | `.tab-pane.fade.active.in` | `.tab-pane.fade.show.active` | `#expectModal` (erste Tab-Pane) |
 
-- Hinweis: Alle `btn-default`-Schliessen-Buttons entfallen, wenn TASK-002 den `btn-close`-Button einführt.
-  Für andere Buttons (z. B. `closeBtnLegendModal` Span) werden die Buttons auf `.btn-secondary` umgestellt.
+- Hinweis: `.nav-justified` existiert in Bootstrap 5 unverändert – kein Handlungsbedarf.
+- Hinweis: `.panel-primary`-Divs in Modal-Bodys sind reine Inhalts-Wrapper; sie müssen nicht
+  zwingend als `card-body` strukturiert werden, da ihr Inhalt dynamisch per `ModalBuilder` gesetzt wird.
+  Es genügt, die Klassen zu tauschen.
 
 ## Schritte
-- [ ] `.panel.panel-default` → `<div class="card">` inkl. `.panel-heading` → `.card-header` und `.panel-title` → `.card-title` (Sidebar `#features`)
-- [ ] `.panel.panel-primary` → `<div class="card card-body">` in allen Inhalt-Modals (aboutModalDiv-Tabs, fImpressumModal, fDisclaimerModal, fDatenschutzModal, fCoffeeModal, attributionModal)
-- [ ] Alle `<button class="btn btn-default" data-bs-dismiss="modal">` → `<button class="btn btn-secondary" data-bs-dismiss="modal">`
-- [ ] `.btn-xs` entfernen oder durch `.btn-sm` ersetzen (`#sidebar-hide-btn`)
-- [ ] `.pull-right` → `.float-end` (`#sidebar-hide-btn`)
-- [ ] `.hidden-xs` → `.d-none .d-sm-inline` (`#list-btn`)
-- [ ] `.visible-xs` → `.d-inline .d-sm-none` (Navbar-Hamburger-Link-Container)
-- [ ] Erste `.tab-pane` Klassen prüfen: `active in` → `show active`
-- [ ] Seite im Browser laden; visuelle Darstellung der Sidebar, Modals und Tabs prüfen
+- [ ] Sidebar `#features`: `<div class="panel panel-default">` → `<div class="card">`,
+  `<div class="panel-heading">` → `<div class="card-header">`,
+  `<h3 class="panel-title">` → `<h3 class="card-title">`
+- [ ] Alle `<div class="panel panel-primary">` in Modal-Bodys → `<div class="card">`
+- [ ] `#sidebar-hide-btn`: Klassen `btn btn-xs btn-default pull-right` → `btn btn-sm btn-secondary float-end`
+- [ ] `#list-btn` im `<li>`-Tag: Klasse `hidden-xs` → `d-none d-sm-inline`
+- [ ] Navbar-Icon-Container-Link: Klasse `visible-xs` → `d-inline d-sm-none`
+- [ ] Tab-Pane `#expectModal`: Klassen `active in` → `show active`
+- [ ] Seite im Browser laden; Sidebar-Darstellung, Modale Inhalts-Wrapper und Tab-Aktiv-Zustand prüfen
 
 ## Ergebnis
-Keine Bootstrap-3-exklusiven CSS-Klassen mehr in `index.html`; Layout und Darstellung entsprechen dem
-vorherigen Stand.
+Keine Bootstrap-3-exklusiven CSS-Klassen mehr in Sidebar, Inhaltskomponenten und
+Sichtbarkeits-Utilities; visuelle Darstellung entspricht dem Ausgangszustand.
 
 ## Status
 Todo
 
 ## Aufwand
-M
+S

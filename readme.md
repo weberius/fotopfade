@@ -8,3 +8,7 @@ Besuchen Sie z.B. [Frankenberg], [Korbach] oder [Fritzlar]. Oder folgen Sie mir 
 [Korbach]: https://weberius.github.io/fotopfade/index.html?id=korbach
 [Fritzlar]: https://weberius.github.io/fotopfade/index.html?id=fritzlar
 [Köln Mülheim]: https://weberius.github.io/fotopfade/index.html?id=koeln-muelheim
+
+```
+python3 -m http.server 8080
+```

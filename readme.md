@@ -9,6 +9,8 @@ Besuchen Sie z.B. [Frankenberg], [Korbach] oder [Fritzlar]. Oder folgen Sie mir 
 [Fritzlar]: https://weberius.github.io/fotopfade/index.html?id=fritzlar
 [Köln Mülheim]: https://weberius.github.io/fotopfade/index.html?id=koeln-muelheim
 
+Starten des Test-Servers mit: 
+
 ```
 python3 -m http.server 8080
 ```

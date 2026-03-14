@@ -55,7 +55,7 @@ function updateContent() {
 
     new ModalBuilder().build('aboutTabsHeader', i18next.language);
     new ModalBuilder().loadMarkdown('attributionModalLi', i18next.language);
-    new ModalBuilder().loadMarkdown('disclaimerModalLi', i18next.language);
+    new ModalBuilder().loadMarkdown('resourcesModalLi', i18next.language);
     new ModalBuilder().loadMarkdown('featuresModalLi', i18next.language);
     new ModalBuilder().build('routModalBody', i18next.language);
     new ModalBuilder().loadMarkdown('linksModalLi', i18next.language);

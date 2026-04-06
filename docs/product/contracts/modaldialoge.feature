@@ -30,32 +30,32 @@ Feature: Modale Dialoge
     Then öffnet sich das Startmodal (#startModal)
     And die Karte zoomt erneut auf die Ausdehnung der Route
 
-  # --- About-Modal ---
+  # --- Projekt-Dialoge (5 eigenständige Modals) ---
 
-  Szenario: About-Modal öffnet sich durch Klick auf "About" im Menü
-    When der Nutzer auf den Menüpunkt "About" (about-btn) klickt
-    Then öffnet sich das About-Modal (#aboutModalDiv)
-    And das Modal zeigt fünf Reiter entsprechend "locales/koeln-muelheim/de/aboutTabsHeader.html"
-
-  Szenario: About-Modal zeigt den Geschichts-Reiter als Standard
-    When das About-Modal geöffnet wird
-    Then ist der erste Reiter (Geschichte / expectModal) aktiv und sichtbar
+  Szenario: Geschichte-Dialog öffnet sich durch Klick auf "Geschichte" im Menü
+    When der Nutzer auf den Menüpunkt "Geschichte" (geschichte-btn) klickt
+    Then öffnet sich der Geschichte-Dialog (#geschichteModalDiv)
     And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/expectModalLi.md"
 
-  Szenario: Reiter "Über das Projekt" im About-Modal
-    Given das About-Modal ist geöffnet
-    When der Nutzer auf den Reiter "Über das Projekt" klickt
-    Then wird der Inhalt aus "locales/koeln-muelheim/de/aboutModalLi.md" angezeigt
+  Szenario: Über-das-Projekt-Dialog öffnet sich durch Klick im Menü
+    When der Nutzer auf den Menüpunkt "Über das Projekt" (ueber-btn) klickt
+    Then öffnet sich der Über-das-Projekt-Dialog (#ueberModalDiv)
+    And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/aboutModalLi.md"
 
-  Szenario: Reiter "Features" im About-Modal
-    Given das About-Modal ist geöffnet
-    When der Nutzer auf den Reiter "Features" klickt
-    Then wird der Inhalt aus "locales/koeln-muelheim/de/featuresModalLi.md" angezeigt
+  Szenario: Features-Dialog öffnet sich durch Klick im Menü
+    When der Nutzer auf den Menüpunkt "Features" (features-btn) klickt
+    Then öffnet sich der Features-Dialog (#featuresModalDiv)
+    And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/featuresModalLi.md"
 
-  Szenario: Reiter "Quellen" im About-Modal
-    Given das About-Modal ist geöffnet
-    When der Nutzer auf den Reiter "Quellen" klickt
-    Then wird der Inhalt aus "locales/koeln-muelheim/de/resourcesModalLi.md" angezeigt
+  Szenario: QR-Code-Dialog öffnet sich durch Klick im Menü
+    When der Nutzer auf den Menüpunkt "QR-Code" (links-btn) klickt
+    Then öffnet sich der QR-Code-Dialog (#linksModalDiv)
+    And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/linksModalLi.md"
+
+  Szenario: Quellen-Dialog öffnet sich durch Klick im Menü
+    When der Nutzer auf den Menüpunkt "Quellen" (resources-btn) klickt
+    Then öffnet sich der Quellen-Dialog (#resourcesModalDiv)
+    And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/resourcesModalLi.md"
 
   # --- Routen-Modal (legendModal) ---
 

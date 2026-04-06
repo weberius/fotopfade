@@ -35,7 +35,6 @@ Aktuell verwendete HTML-Fragmente:
 
 | Dateiname | Ziel-Element-ID | Inhalt |
 |---|---|---|
-| `aboutTabsHeader.html` | `aboutTabsHeader` | Tab-Navigation des About-Modals (`<li>` mit `data-toggle="tab"`) |
 | `routModalBody.html` | `routModalBody` | DataTables-Tabelle für die Routenübersicht |
 | `leaflet-control-attribution.html` | Leaflet-Control-DIV | Attributionszeile unten rechts auf der Karte |
 

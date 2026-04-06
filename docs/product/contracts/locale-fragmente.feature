@@ -16,12 +16,6 @@ Feature: Laden von Locale-Fragmenten aus dem locales-Verzeichnis
 
   # --- HTML-Fragmente via ModalBuilder.build() ---
 
-  Szenario: HTML-Fragment für die Tab-Kopfzeile des About-Dialogs wird geladen
-    When die Methode ModalBuilder.build("aboutTabsHeader", "de") aufgerufen wird
-    Then wird eine HTTP GET-Anfrage an "locales/koeln-muelheim/de/aboutTabsHeader.html" gesendet
-    And bei erfolgreicher Antwort wird der HTML-Inhalt in das DOM-Element mit der ID "aboutTabsHeader" injiziert
-    And die Tab-Kopfzeile zeigt die konfigurierten Reiter (Geschichte, Über das Projekt, Features, QR-Code, Quellen)
-
   Szenario: HTML-Fragment für den Inhalt des Routen-Modals wird geladen
     When die Methode ModalBuilder.build("routModalBody", "de") aufgerufen wird
     Then wird eine HTTP GET-Anfrage an "locales/koeln-muelheim/de/routModalBody.html" gesendet

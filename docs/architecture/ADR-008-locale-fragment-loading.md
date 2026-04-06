@@ -66,7 +66,7 @@ POI-spezifische Markdown-Dateien (`p<id>.md`) werden **nicht über `ModalBuilder
 | Inhalt | Strukturelles HTML (Tabellen, Tab-Elemente) | Fließtext mit Formatierung, Bildern, Audio |
 | Lademethode | `ModalBuilder.build()` | `ModalBuilder.loadMarkdown()` |
 | Konvertierung | keine (direktes innerHTML) | marked.js → HTML |
-| Beispiele | `aboutTabsHeader.html`, `routModalBody.html`, `leaflet-control-attribution.html` | `startModalBody.md`, `p1.md`, `impressumModalLi.md` |
+| Beispiele | `routModalBody.html`, `leaflet-control-attribution.html` | `startModalBody.md`, `p1.md`, `impressumModalLi.md` |
 
 ## Alternativen
 

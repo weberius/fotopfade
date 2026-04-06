@@ -9,7 +9,9 @@ HTML-Element, Klassen, data-Attribute auf Navbar-Elementen sowie den Hamburger-T
 Alle Navbar-spezifischen Änderungen werden in diesem Task zusammengefasst.
 
 ## Technische Details
-- Betroffene Datei: `index.html`, ausschließlich das `<div class="navbar ...">` und seine Kinder.
+- Betroffene Dateien: `index.html`, `assets/js/locale.js`
+- Änderungen in `index.html` betreffen ausschließlich das `<div class="navbar ...">` und seine Kinder.
+- Änderungen in `locale.js` betreffen die Klasse `LanguageSelector`, die Navbar-Links dynamisch erzeugt.
 - Änderungsübersicht:
 
   | Bereich | Bootstrap 3 | Bootstrap 5 |
@@ -21,6 +23,14 @@ Alle Navbar-spezifischen Änderungen werden in diesem Task zusammengefasst.
   | Nav-Link-Attribute | `data-toggle="collapse" data-target=".navbar-collapse.in"` | `data-bs-toggle="collapse" data-bs-target="#navbarMenu"` |
   | Dropdown-Attribut | `data-toggle="dropdown"` | `data-bs-toggle="dropdown"` |
   | Caret | `<b class="caret">` | entfällt (CSS-generiert) |
+
+- **`locale.js` – `LanguageSelector.build()`:** Die Methode erzeugt `<a>`-Tags mit
+  Bootstrap-3-Attributen. Diese müssen auf Bootstrap 5 umgestellt werden:
+
+  | Attribut | Bootstrap 3 | Bootstrap 5 |
+  |---|---|---|
+  | Toggle-Attribut | `data-toggle="collapse"` | `data-bs-toggle="collapse"` |
+  | Target-Attribut | `data-target=".navbar-collapse.in"` | `data-bs-target="#navbarMenu"` |
 
 - Der alte Hamburger `#nav-btn` entfällt; sein jQuery-Handler in `app.js` wird in TASK-005 entfernt.
 - Die Nav-Links behalten trotz BS5-Toggler ihre `data-bs-toggle/target`-Attribute, damit das Menü beim
@@ -43,12 +53,20 @@ Alle Navbar-spezifischen Änderungen werden in diesem Task zusammengefasst.
   `data-toggle="collapse" data-target=".navbar-collapse.in"` → `data-bs-toggle="collapse" data-bs-target="#navbarMenu"`
 - [ ] Dropdown-Link: `data-toggle="dropdown"` → `data-bs-toggle="dropdown"`
 - [ ] `<b class="caret"></b>` entfernen
+- [ ] **`locale.js` – `LanguageSelector.build()`:** Beide `<a>`-Tags (aktive und inaktive Sprache) ändern:
+  ```javascript
+  // alt
+  '<a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="...">'
+  // neu
+  '<a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" onclick="...">'
+  ```
 - [ ] Responsives Verhalten testen: Hamburger-Menü auf schmalen Bildschirmen ein-/ausklappen;
   Menü schließt beim Klick auf einen Nav-Eintrag
 
 ## Ergebnis
 Die Navbar verwendet ausschließlich Bootstrap-5-Klassen und -Attribute; der Hamburger-Toggler
-funktioniert ohne eigene JavaScript-Logik; das bisherige visuelle Erscheinungsbild bleibt erhalten.
+funktioniert ohne eigene JavaScript-Logik; `LanguageSelector` erzeugt korrekte Bootstrap-5-Attribute;
+das bisherige visuelle Erscheinungsbild bleibt erhalten.
 
 ## Status
 Todo

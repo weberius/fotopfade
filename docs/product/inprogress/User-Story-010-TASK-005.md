@@ -26,7 +26,8 @@ unverändert und wird in TASK-006 behandelt.
   | full-extent-btn Handler | `$("#startModal").modal("show")` | `bootstrap.Modal.getOrCreateInstance(document.getElementById('startModal')).show()` |
   | legend-btn Handler | `$("#legendModal").modal("show")` | `bootstrap.Modal.getOrCreateInstance(document.getElementById('legendModal')).show()` |
   | about-, full-extent-, legend-btn | `$(".navbar-collapse.in").collapse("hide")` | `bootstrap.Collapse.getOrCreateInstance(document.querySelector('.navbar-collapse')).hide()` |
-  | routes-Klick-Handler | `$("#featureModal").modal("show")` | analog |
+  | routes-onEachFeature | `routes.onEachFeature` Click-Handler: `$("#featureModal").modal("show")` | `bootstrap.Modal.getOrCreateInstance(document.getElementById('featureModal')).show()` |
+  | routes-Klick-Handler | legacy-Bezeichnung, identisch mit routes-onEachFeature (s. o.) | — s. o. — |
   | fetch-Callback (Route) | `$("#startModal").modal("show")` / `.modal("hide")` | analog |
   | pois-Klick-Handler | `$("#featureModal").modal("show")` | analog |
   | Footer-Buttons | `$("#fImpressumModal").modal("show")` u. a. | analog (4 Modals) |
@@ -37,7 +38,15 @@ unverändert und wird in TASK-006 behandelt.
   natives CustomEvent; jQuery delegiert daran korrekt, auch ohne BS5-jQuery-Plugin.
 
 ## Schritte
-- [ ] Alle `.modal("show")`-Aufrufe durch `bootstrap.Modal.getOrCreateInstance(el).show()` ersetzen
+- [ ] Alle `.modal("show")`-Aufrufe durch `bootstrap.Modal.getOrCreateInstance(el).show()` ersetzen;
+  `el` ist stets `document.getElementById('<modalId>')`. Betroffen sind explizit:
+  - `about-btn`-Handler: `document.getElementById('aboutModalDiv')`
+  - `full-extent-btn`-Handler: `document.getElementById('startModal')`
+  - `legend-btn`-Handler: `document.getElementById('legendModal')`
+  - `routes.onEachFeature` Click-Handler (ca. Zeile 204): `document.getElementById('featureModal')`
+  - `pois.onEachFeature` Click-Handler: `document.getElementById('featureModal')`
+  - `fetch`-Callback Route (beide Pfade, ca. Zeile 230): `document.getElementById('startModal')`
+  - Footer-Buttons (4×): `fImpressumModal`, `fDisclaimerModal`, `fDatenschutzModal`, `fCoffeeModal`
 - [ ] Alle `.modal("hide")`-Aufrufe durch `bootstrap.Modal.getOrCreateInstance(el).hide()` ersetzen
 - [ ] Alle `$(".navbar-collapse.in").collapse("hide")`-Aufrufe durch
   `bootstrap.Collapse.getOrCreateInstance(document.querySelector('.navbar-collapse')).hide()` ersetzen

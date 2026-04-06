@@ -21,7 +21,7 @@ die Navbar-Struktur in TASK-004.
   | `.btn-xs` | `.btn-sm` | `#sidebar-hide-btn` |
   | `.btn-default` | `.btn-secondary` | `#sidebar-hide-btn` |
   | `.pull-right` | `.float-end` | `#sidebar-hide-btn` |
-  | `.hidden-xs` | `.d-none.d-sm-inline` | `#list-btn` (Navbar-Listeneintrag) |
+  | `.hidden-xs` | `.d-none.d-sm-block` | `#list-btn` (Navbar-Listeneintrag) |
   | `.visible-xs` | `.d-inline.d-sm-none` | `.navbar-icon-container > a` |
   | `.tab-pane.fade.active.in` | `.tab-pane.fade.show.active` | `#expectModal` (erste Tab-Pane) |
 
@@ -36,10 +36,15 @@ die Navbar-Struktur in TASK-004.
   `<h3 class="panel-title">` → `<h3 class="card-title">`
 - [ ] Alle `<div class="panel panel-primary">` in Modal-Bodys → `<div class="card">`
 - [ ] `#sidebar-hide-btn`: Klassen `btn btn-xs btn-default pull-right` → `btn btn-sm btn-secondary float-end`
-- [ ] `#list-btn` im `<li>`-Tag: Klasse `hidden-xs` → `d-none d-sm-inline`
+- [ ] `#list-btn` im `<li>`-Tag: Klasse `hidden-xs` → `d-none d-sm-block`
 - [ ] Navbar-Icon-Container-Link: Klasse `visible-xs` → `d-inline d-sm-none`
 - [ ] Tab-Pane `#expectModal`: Klassen `active in` → `show active`
 - [ ] Seite im Browser laden; Sidebar-Darstellung, Modale Inhalts-Wrapper und Tab-Aktiv-Zustand prüfen
+
+## Hinweis: Korrespondierende CSS-Änderungen
+Die hier migrierten HTML-Klassen haben Entsprechungen in `assets/css/app.css`, die ebenfalls
+umbenannt werden müssen (`.panel-primary`, `.panel-heading`, `.panel-body`, `.navbar-header`-Selektoren,
+`.navbar-collapse.in`). Diese werden in **TASK-009** behandelt.
 
 ## Ergebnis
 Keine Bootstrap-3-exklusiven CSS-Klassen mehr in Sidebar, Inhaltskomponenten und

@@ -9,7 +9,7 @@ manuell geprüft. Ziel ist der Nachweis, dass keine Regressionsfehler eingeführ
 das bisherige Verhalten auf allen relevanten Bildschirmgrößen erhalten ist.
 
 ## Voraussetzungen
-Alle Tasks TASK-001 bis TASK-007 müssen abgeschlossen sein.
+Alle Tasks TASK-001 bis TASK-007 und TASK-009 müssen abgeschlossen sein.
 
 ## Schritte
 
@@ -20,6 +20,7 @@ Alle Tasks TASK-001 bis TASK-007 müssen abgeschlossen sein.
 ### Navbar
 - [ ] Desktop (≥ 992 px): alle Navbar-Einträge sichtbar und klickbar (Zoom, Route, Galerie, Sprache, POIs, About)
 - [ ] Mobil (< 576 px): Hamburger-Toggler öffnet und schließt das Menü; Klick auf einen Eintrag schließt das Menü
+- [ ] Sprachauswahl-Dropdown öffnet und schließt korrekt; Klick auf eine Sprache wechselt die Sprache und schließt das Menü
 
 ### Modals
 - [ ] `startModal` öffnet beim Laden; schließt über X und Schliessen-Button; schließt automatisch nach 30 s
@@ -34,6 +35,8 @@ Alle Tasks TASK-001 bis TASK-007 müssen abgeschlossen sein.
 - [ ] Klick auf Sidebar-Zeile springt zur Karte und zeigt POI-Modal; auf Mobilgeräten verschwindet Sidebar
 - [ ] Sidebar-Toggle-Button (`#sidebar-hide-btn`) ein-/ausblenden funktioniert mit Animation
 - [ ] Hover über Sidebar-Zeile markiert POI auf der Karte (Desktop)
+- [ ] Visuelle Darstellung der Sidebar und Modal-Inhaltsbereiche (Schriftgröße, Abstände, Bilder)
+  entspricht dem Ausgangszustand – CSS-Klassen-Migration (TASK-009) hat keine visuellen Regressionsfehler eingeführt
 
 ### Responsive
 - [ ] Tablet (768–991 px): Navbar kollabiert; Sidebar und Karte nebeneinander

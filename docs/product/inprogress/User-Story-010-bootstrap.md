@@ -33,10 +33,21 @@ Bootstrap 5 bringt gegenüber Version 3 folgende wesentliche Verbesserungen:
 * **Abhängigkeit aktualisiert:** Die CDN-Einbindung in `index.html` verweist auf Bootstrap 5.3.8 (CSS und JS).
 * **jQuery entfernt oder optional:** jQuery wird nicht mehr als Pflichtabhängigkeit für Bootstrap-Komponenten benötigt; vorhandene jQuery-Nutzung im App-Code wird geprüft und ggf. durch natives JavaScript ersetzt.
 * **Bestehende UI unverändert:** Navigation, Modals, Buttons, Grid-Layout und alle sichtbaren Komponenten verhalten sich nach der Umstellung wie zuvor (kein visueller Regressionsbruch).
-* **Klassen-Migration:** Bootstrap-3-spezifische Klassen (z. B. `col-xs-*`, `panel`, `glyphicon`) werden auf ihre Bootstrap-5-Entsprechungen migriert.
+* **Klassen-Migration HTML:** Bootstrap-3-spezifische Klassen (z. B. `col-xs-*`, `panel`, `glyphicon`) in `index.html` werden auf ihre Bootstrap-5-Entsprechungen migriert.
+* **Klassen-Migration CSS:** Bootstrap-3-spezifische Selektoren in `assets/css/app.css` (`.panel-primary`, `.panel-heading`, `.panel-body`, `.navbar-collapse.in`, `.navbar-header`-Selektoren) werden auf ihre Bootstrap-5-Entsprechungen umbenannt (TASK-009).
+* **JavaScript-Migration vollständig:** Alle Bootstrap-3-Attribute in dynamisch erzeugtem HTML – insbesondere `data-toggle`/`data-target` in `assets/js/locale.js` (`LanguageSelector`) – werden auf Bootstrap-5-Attribute (`data-bs-toggle`/`data-bs-target`) umgestellt (TASK-004).
 * **Font Awesome überprüft:** Da Bootstrap 5 keine Glyphicons mehr enthält, wird geprüft, ob Font Awesome oder Bootstrap Icons die benötigten Symbole bereitstellen; die Einbindung wird konsolidiert.
 * **Keine JavaScript-Fehler:** Die Browser-Konsole zeigt nach der Umstellung keine neuen Fehler durch inkompatible Bootstrap-APIs.
 * **Responsives Verhalten erhalten:** Die App verhält sich auf Smartphone, Tablet und Desktop korrekt.
+
+### Betroffene Dateien
+
+| Datei | Warum betroffen |
+|---|---|
+| `index.html` | CDN-Links, Bootstrap-3-Markup (Navbar, Modals, Klassen) |
+| `assets/css/app.css` | Bootstrap-3-Selektoren (`.panel-*`, `.navbar-header`, `.navbar-collapse.in`) |
+| `assets/js/app.js` | Bootstrap-jQuery-Plugin-API, jQuery-DOM-Manipulation |
+| `assets/js/locale.js` | Dynamisch erzeugtes HTML mit `data-toggle`/`data-target` in `LanguageSelector` |
 
 ### Technische Hinweise
 

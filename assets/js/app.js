@@ -54,37 +54,43 @@ document.getElementById("full-extent-btn").addEventListener("click", function() 
 // FILL TABLE
 /**************************************************************************************************/
 
+let legendTableInitialized = false;
+
 document.getElementById("legend-btn").addEventListener("click", function() {
 
-    var urldata;
+    var urldata = getURLParameter("id")
+        ? "service/data/" + getURLParameter("id") + ".json"
+        : "service/data/" + namespace + ".json";
 
-    if (getURLParameter("id")) {
-      urldata = "service/data/" + getURLParameter("id") +  ".json"
-    } else {
-      urldata = "service/data/" + config.start.id +  ".json";
+    var legendModalEl = document.getElementById("legendModal");
+
+    if (!legendTableInitialized) {
+        legendModalEl.addEventListener("shown.bs.modal", function handler() {
+            legendModalEl.removeEventListener("shown.bs.modal", handler);
+            var tableEl = document.getElementById("culturalpath");
+            if (!tableEl) {
+                console.error("legend-btn: #culturalpath not found in DOM");
+                return;
+            }
+            legendTableInitialized = true;
+            new DataTable(tableEl, {
+                ajax: { url: urldata, dataSrc: "data" },
+                searching: false,
+                paging: false,
+                ordering: false,
+                info: false,
+                columns: [
+                    { data: "name" },
+                    { data: "time" },
+                    { data: "distance" }
+                ]
+            });
+        });
     }
 
-  // datatable
-  new DataTable('#culturalpath', {
-      ajax: {
-          url: urldata,
-          dataSrc: 'data'
-      },
-      searching: false,
-      paging: false,
-      ordering: false,
-      info: false,
-      retrieve: true,
-      columns: [
-          { data: "name" },
-          { data: "time" },
-          { data: "distance" }
-      ]
-  });
-
-  bootstrap.Modal.getOrCreateInstance(document.getElementById("legendModal")).show();
-  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
-  return false;
+    bootstrap.Modal.getOrCreateInstance(legendModalEl).show();
+    bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
+    return false;
 });
 
 document.getElementById("list-btn").addEventListener("click", function() {

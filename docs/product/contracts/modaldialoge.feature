@@ -62,8 +62,15 @@ Feature: Modale Dialoge
   Szenario: Routen-Modal wird durch Klick auf "Route" im Menü geöffnet
     When der Nutzer auf den Menüpunkt "Route" (legend-btn) klickt
     Then öffnet sich das Routen-Modal (#legendModal)
-    And eine DataTables-Tabelle zeigt die Etappendaten aus "service/data/koeln-muelheim.json"
+    And nach vollständigem Einblenden des Modals (shown.bs.modal) wird die DataTables-Tabelle initialisiert
+    And die Tabelle lädt die Etappendaten per AJAX aus "service/data/koeln-muelheim.json"
     And die Tabelle hat die Spalten "Name", "Zeit" und "Entfernung"
+
+  Szenario: Routen-Modal DataTable wird nur beim ersten Öffnen initialisiert
+    Given das Routen-Modal wurde bereits einmal geöffnet und die DataTable ist initialisiert
+    When der Nutzer das Routen-Modal erneut öffnet
+    Then wird die DataTable nicht erneut initialisiert
+    And die bereits geladenen Etappendaten bleiben sichtbar
 
   # --- Feature-Modal (POI-Dialog) ---
 

@@ -17,7 +17,7 @@ Es wird ein **Namespace-Konzept** eingeführt. Jeder Fotopfad erhält einen eind
 - die Pfade zu Daten-Dateien: `service/data/<namespace>.json`, `service/route/<namespace>.geojson`, `service/poi/<namespace>.geojson`
 - die Pfade zu Lokalisierungsdateien: `locales/<namespace>/<lang>/<datei>.md`
 
-Der Namespace wird beim Start aus dem URL-Parameter `id` ermittelt (`getURLParameter("id")`) oder fällt auf `config.start.id` zurück.
+Der Namespace wird beim Start aus dem URL-Parameter `id` ermittelt (`getURLParameter("id")`) oder fällt auf den in `assets/js/config.js` definierten Standardwert zurück. Dieser Standardwert ist die globale Variable `namespace`, die in `config.js` mit dem Default-Namespace vorbelegt wird (z. B. `let namespace = "06634005"`). Ein separates `config`-Objekt existiert nicht.
 
 ```
 index.html?id=koeln-muelheim&lng=de
@@ -44,6 +44,6 @@ index.html?id=koeln-muelheim&lng=de
 - Einfache Verlinkung auf spezifische Pfade mit Sprachauswahl
 
 **Negativ:**
-- Namespace muss in URL-Parameter oder `config.js` bekannt sein
+- Namespace muss im URL-Parameter `?id=` oder als Standardwert der globalen Variable `namespace` in `config.js` bekannt sein
 - Fehlerhafte Namespace-IDs führen zu lautlosen Ladefehlern (404 auf Datendateien)
 - Kein Namespace-Discovery-Mechanismus – Liste der Pfade ist implizit

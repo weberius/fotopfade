@@ -72,7 +72,7 @@ anschließend den jQuery-`<script>`-Tag aus `index.html`.
 verhalten sich wie zuvor.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 L

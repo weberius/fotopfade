@@ -92,9 +92,9 @@ class LanguageSelector {
         lng = i18next.t(newLanguage);
         newLi = document.createElement('li');
         if (newLanguage === existingLanguage) {
-          newLi.innerHTML = '<a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;<i>' + lng + '</i></a>';
+          newLi.innerHTML = '<a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;<i>' + lng + '</i></a>';
         } else {
-          newLi.innerHTML = '<a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;' + lng + '</a>';
+          newLi.innerHTML = '<a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;' + lng + '</a>';
         }
         targetElement = document.getElementById('languageSelectorUl');
         targetElement.appendChild(newLi);

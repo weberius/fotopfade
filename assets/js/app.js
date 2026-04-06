@@ -8,33 +8,45 @@ if (getURLParameter("id")) {
   namespace = config.start.id;
 }
 
-$(window).resize(function() {
+window.addEventListener("resize", function() {
   sizeLayerControl();
 });
 
-$(document).on("click", ".feature-row", function(e) {
-  $(document).off("mouseout", ".feature-row", clearHighlight);
-  sidebarClick(parseInt($(this).attr("id"), 10));
+function delegatedMouseout(e) {
+  if (e.target.closest(".feature-row")) {
+    clearHighlight();
+  }
+}
+
+document.addEventListener("click", function(e) {
+  const row = e.target.closest(".feature-row");
+  if (row) {
+    document.removeEventListener("mouseout", delegatedMouseout);
+    sidebarClick(parseInt(row.getAttribute("id"), 10));
+  }
 });
 
 if ( !("ontouchstart" in window) ) {
-  $(document).on("mouseover", ".feature-row", function(e) {
-    highlight.clearLayers().addLayer(L.circleMarker([$(this).attr("lat"), $(this).attr("lng")], highlightStyle));
+  document.addEventListener("mouseover", function(e) {
+    const row = e.target.closest(".feature-row");
+    if (row) {
+      highlight.clearLayers().addLayer(L.circleMarker([row.getAttribute("lat"), row.getAttribute("lng")], highlightStyle));
+    }
   });
 }
 
-$(document).on("mouseout", ".feature-row", clearHighlight);
+document.addEventListener("mouseout", delegatedMouseout);
 
-$("#about-btn").click(function() {
-  $("#aboutModalDiv").modal("show");
-  $(".navbar-collapse.in").collapse("hide");
+document.getElementById("about-btn").addEventListener("click", function() {
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("aboutModalDiv")).show();
+  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
   return false;
 });
 
-$("#full-extent-btn").click(function() {
-  $("#startModal").modal("show");
+document.getElementById("full-extent-btn").addEventListener("click", function() {
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
   map.fitBounds(routes.getBounds());
-  $(".navbar-collapse.in").collapse("hide");
+  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
   return false;
 });
 
@@ -42,7 +54,7 @@ $("#full-extent-btn").click(function() {
 // FILL TABLE
 /**************************************************************************************************/
 
-$("#legend-btn").click(function() {
+document.getElementById("legend-btn").addEventListener("click", function() {
 
     var urldata;
 
@@ -53,62 +65,54 @@ $("#legend-btn").click(function() {
     }
 
   // datatable
-  $(document).ready(function() {
-  	$('#culturalpath').DataTable({
-  	    ajax: {
-            url: urldata,
-            dataSrc: 'data'
-        },
-  		"searching": false,
-  		"paging": false,
-  		"ordering": false,
-  		"info": false,
-  		"retrieve": true,
-  		"columns" : [ {
-  			"data" : "name"
-  		}, {
-  			"data" : "time"
-  		}, {
-  			"data" : "distance"
-  		} ]
-  	});
+  new DataTable('#culturalpath', {
+      ajax: {
+          url: urldata,
+          dataSrc: 'data'
+      },
+      searching: false,
+      paging: false,
+      ordering: false,
+      info: false,
+      retrieve: true,
+      columns: [
+          { data: "name" },
+          { data: "time" },
+          { data: "distance" }
+      ]
   });
 
-  $("#legendModal").modal("show");
-  $(".navbar-collapse.in").collapse("hide");
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("legendModal")).show();
+  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
   return false;
 });
 
-$("#list-btn").click(function() {
+document.getElementById("list-btn").addEventListener("click", function() {
   animateSidebar();
   return false;
 });
 
-$("#nav-btn").click(function() {
-  $(".navbar-collapse").collapse("toggle");
-  return false;
-});
-
-$("#sidebar-toggle-btn").click(function() {
+document.getElementById("sidebar-toggle-btn") && document.getElementById("sidebar-toggle-btn").addEventListener("click", function() {
   animateSidebar();
   return false;
 });
 
-$("#sidebar-hide-btn").click(function() {
+document.getElementById("sidebar-hide-btn").addEventListener("click", function() {
   animateSidebar();
   return false;
 });
 
 function animateSidebar() {
-  $("#sidebar").animate({
-    width: "toggle"
-  }, 350, function() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("sidebar-hidden");
+  sidebar.addEventListener("transitionend", function handler() {
     map.invalidateSize();
+    sidebar.removeEventListener("transitionend", handler);
   });
 }
 
 function sizeLayerControl() {
-  $(".leaflet-control-layers").css("max-height", $("#map").height() - 50);
+  document.querySelector(".leaflet-control-layers").style.maxHeight = (document.getElementById("map").offsetHeight - 50) + "px";
 }
 
 function clearHighlight() {
@@ -121,29 +125,29 @@ function sidebarClick(id) {
   layer.fire("click");
   /* Hide sidebar and go to the map on small screens */
   if (document.body.clientWidth <= 767) {
-    $("#sidebar").hide();
+    document.getElementById("sidebar").style.display = "none";
     map.invalidateSize();
   }
 }
 
 function syncSidebar() {
   /* Empty sidebar features */
-  $("#feature-list tbody").empty();
+  document.querySelector("#feature-list tbody").innerHTML = "";
   /* Loop through pois layer and add only features which are in the map bounds */
   pois.eachLayer(function (layer) {
     if (map.hasLayer(poiLayer)) {
       if (map.getBounds().contains(layer.getLatLng())) {
         // show number only if part of track
         const propsnr = (layer.feature.properties.point === "p") ? layer.feature.properties.nr : " "
-        $("#feature-list tbody")
-          .append('<tr class="feature-row" id="'
+        document.querySelector("#feature-list tbody").insertAdjacentHTML("beforeend",
+          '<tr class="feature-row" id="'
             + L.stamp(layer) + '" lat="' + layer.getLatLng().lat
             + '" lng="' + layer.getLatLng().lng
             + '"><td style="vertical-align: middle;text-align: right" class="feature-nr">'
             + '&nbsp;'
             + '</td><td class="feature-name">'
             + layer.feature.properties.name
-            + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
+            + '</td><td style="vertical-align: middle;"><i class="bi bi-chevron-right float-end"></i></td></tr>');
       }
     }
   });
@@ -194,12 +198,12 @@ var routes = L.geoJson(null, {
   onEachFeature: function (feature, layer) {
     layer.on({
        click: function (e) {
-         $("#feature-title").html("Entfernung");
-         $("#feature-info").html("Entfernung zur nächsten Sehenwürdigkeit: "
+         document.getElementById("feature-title").innerHTML = "Entfernung";
+         document.getElementById("feature-info").innerHTML = "Entfernung zur nächsten Sehenwürdigkeit: "
             + feature.properties.distance
             + "<br/> Voraussichtliche Dauer ohne Pause: "
-            + feature.properties.time);
-         $("#featureModal").modal("show");
+            + feature.properties.time;
+         bootstrap.Modal.getOrCreateInstance(document.getElementById("featureModal")).show();
        }
     });
   }
@@ -215,33 +219,35 @@ fetch(urlroute, {
   method: 'HEAD' // Verwende die HEAD-Methode, um nur den Header abzurufen
 }).then(response => {
     if (response.ok) {
-      $.getJSON(urlroute, function (data) {
+      fetch(urlroute).then(r => r.json()).then(function(data) {
         routes.addData(data);
         // Erst jetzt ist die Geometrie da → fitBounds + Modal
         if (routes.getBounds().isValid()) {
           map.fitBounds(routes.getBounds());
-          $("#startModal").modal("show");
+          sizeLayerControl();
+          bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
           // Automatisch nach 30 Sekunden schließen
           setTimeout(function() {
-            $("#startModal").modal("hide");
+            bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
           }, 30000);
         }
-      });
+      }).catch(error => console.error('Fehler beim Laden der Route:', error));
     } else {
       console.log('Die Seite wurde nicht gefunden.');
       urlroute = "service/route/" + config.start.id +  ".geojson";
-      $.getJSON(urlroute, function (data) {
+      fetch(urlroute).then(r => r.json()).then(function(data) {
         routes.addData(data);
         // Erst jetzt ist die Geometrie da → fitBounds + Modal
         if (routes.getBounds().isValid()) {
           map.fitBounds(routes.getBounds());
-          $("#startModal").modal("show");
+          sizeLayerControl();
+          bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
           // Automatisch nach 30 Sekunden schließen
           setTimeout(function() {
-            $("#startModal").modal("hide");
+            bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
           }, 30000);
         }
-      });
+      }).catch(error => console.error('Fehler beim Laden der Route:', error));
     }
   }).catch(error => {
     console.error('Ein Fehler ist aufgetreten:', error);
@@ -301,22 +307,22 @@ var pois = L.geoJson(null, {
       layer.on({
         click: function (e) {
           const featureTitle = feature.properties.name;
-          $("#feature-title").html(featureTitle);
-          $("#feature-info").html(content);
-          $("#featureModal").modal("show");
+          document.getElementById("feature-title").innerHTML = featureTitle;
+          document.getElementById("feature-info").innerHTML = content;
+          bootstrap.Modal.getOrCreateInstance(document.getElementById("featureModal")).show();
           highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
         }
       });
       // show number only if part of track
       const propsnr = (layer.feature.properties.point === "p") ? layer.feature.properties.nr : " "
-      $("#feature-list tbody")
-        .append('<tr class="feature-row" id="'
+      document.querySelector("#feature-list tbody").insertAdjacentHTML("beforeend",
+        '<tr class="feature-row" id="'
         + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng
         + '"><td style="vertical-align: middle;">'
         + '&nbsp;'
         + '</td><td class="feature-name">'
         + layer.feature.properties.name
-        + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
+        + '</td><td style="vertical-align: middle;"><i class="bi bi-chevron-right float-end"></i></td></tr>');
 
       var tooltipOptions = {
             offset: [15, 0], // Offset des Tooltips
@@ -364,17 +370,17 @@ function loadPoiLayer() {
       method: 'HEAD' // Verwende die HEAD-Methode, um nur den Header abzurufen
     }).then(response => {
         if (response.ok) {
-          $.getJSON(urlpoi, function (data) {
+          fetch(urlpoi).then(r => r.json()).then(function(data) {
               pois.addData(data);
               map.addLayer(poiLayer);
-          });
+          }).catch(error => console.error('Fehler beim Laden der POIs:', error));
         } else {
           console.log('Die Seite wurde nicht gefunden.');
           urlpoi = "service/poi/" + config.start.id +  ".geojson";
-          $.getJSON(urlpoi, function (data) {
+          fetch(urlpoi).then(r => r.json()).then(function(data) {
               pois.addData(data);
               map.addLayer(poiLayer);
-          });
+          }).catch(error => console.error('Fehler beim Laden der POIs:', error));
         }
       }).catch(error => {
         console.error('Ein Fehler ist aufgetreten:', error);
@@ -416,9 +422,10 @@ map.on("click", function(e) {
 
 /* Attribution control */
 function updateAttribution(e) {
-  $.each(map._layers, function(index, layer) {
+  Object.values(map._layers).forEach(function(layer) {
     if (layer.getAttribution) {
-      $("#attribution").html((layer.getAttribution()));
+      const el = document.getElementById("attribution");
+      if (el) el.innerHTML = layer.getAttribution();
     }
   });
 }
@@ -521,21 +528,12 @@ var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {
 }).addTo(map);
 
 
-$("#featureModal").on("hidden.bs.modal", function (e) {
-  $(document).on("mouseout", ".feature-row", clearHighlight);
-});
-
-/**************************************************************************************************/
-// AJAX STOP; do something if all is loaded
-/**************************************************************************************************/
-$(document).one("ajaxStop", function () {
-  sizeLayerControl();
-  /* Fit map to routes bounds */
-  map.fitBounds(routes.getBounds());
+document.getElementById("featureModal").addEventListener("hidden.bs.modal", function(e) {
+  document.addEventListener("mouseout", delegatedMouseout);
 });
 
 // Leaflet patch to make layer control scrollable on touch browsers
-var container = $(".leaflet-control-layers")[0];
+var container = document.querySelector(".leaflet-control-layers");
 if (!L.Browser.touch) {
   L.DomEvent
   .disableClickPropagation(container)
@@ -658,22 +656,22 @@ class ModalBuilder {
 // FOOTER LINK HANDLERS
 /**************************************************************************************************/
 
-$("#footer-impressum-btn").click(function(e) {
+document.getElementById("footer-impressum-btn").addEventListener("click", function(e) {
   e.preventDefault();
-  $("#fImpressumModal").modal("show");
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("fImpressumModal")).show();
 });
 
-$("#footer-disclaimer-btn").click(function(e) {
+document.getElementById("footer-disclaimer-btn").addEventListener("click", function(e) {
   e.preventDefault();
-  $("#fDisclaimerModal").modal("show");
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("fDisclaimerModal")).show();
 });
 
-$("#footer-datenschutz-btn").click(function(e) {
+document.getElementById("footer-datenschutz-btn").addEventListener("click", function(e) {
   e.preventDefault();
-  $("#fDatenschutzModal").modal("show");
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("fDatenschutzModal")).show();
 });
 
-$("#footer-coffee-btn").click(function(e) {
+document.getElementById("footer-coffee-btn").addEventListener("click", function(e) {
   e.preventDefault();
-  $("#fCoffeeModal").modal("show");
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("fCoffeeModal")).show();
 });

@@ -35,7 +35,7 @@ In `index.html` werden die CDN-Links für Bootstrap von Version 3.3.5 auf 5.3.8 
 `index.html` lädt Bootstrap 5.3.8 über CDN; keine Bootstrap-3-CDN-Referenzen mehr vorhanden.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 XS

@@ -51,7 +51,7 @@ Keine Bootstrap-3-exklusiven CSS-Klassen mehr in Sidebar, Inhaltskomponenten und
 Sichtbarkeits-Utilities; visuelle Darstellung entspricht dem Ausgangszustand.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 S

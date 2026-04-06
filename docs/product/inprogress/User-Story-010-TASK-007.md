@@ -40,7 +40,7 @@ Das dritte Font-Awesome-Icon (`fa-bars` im Hamburger-Button) entfällt bereits d
 Font Awesome ist vollständig entfernt; alle Icons stammen ausschließlich aus Bootstrap Icons 1.11.3.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 XS

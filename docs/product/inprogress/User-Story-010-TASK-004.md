@@ -69,7 +69,7 @@ funktioniert ohne eigene JavaScript-Logik; `LanguageSelector` erzeugt korrekte B
 das bisherige visuelle Erscheinungsbild bleibt erhalten.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 M

@@ -59,7 +59,7 @@ Keine Bootstrap-3-jQuery-Plugin-Aufrufe mehr in `app.js`; alle Bootstrap-Interak
 Bootstrap-5-Vanilla-JS-API. Die übrige jQuery-Nutzung bleibt unverändert.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 S

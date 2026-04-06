@@ -46,7 +46,7 @@ Alle Modal-Buttons verwenden `data-bs-dismiss` und die korrekten Bootstrap-5-Kla
 `data-dismiss`, `class="close"` oder `btn-default` mehr innerhalb von Modals.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 S

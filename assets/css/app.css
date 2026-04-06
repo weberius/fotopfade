@@ -57,6 +57,11 @@ input[type="radio"], input[type="checkbox"] {
   height: 100%;
   max-width: 100%;
   float: left;
+  transition: width 350ms;
+}
+#sidebar.sidebar-hidden {
+  width: 0;
+  overflow: hidden;
 }
 #map {
   width: auto;
@@ -76,23 +81,23 @@ input[type="radio"], input[type="checkbox"] {
 #aboutTabsContent {
   padding-top: 10px;
 }
-.panel-primary {
+.card {
     margin: 10px;
     padding: 10px;
 }
-.panel-primary h1 {
+.card h1 {
     font-size: 18px;
 }
-.panel-primary h2 {
+.card h2 {
     font-size: 14px;
 }
-.panel-primary p {
+.card p {
     font-size: 14px;
 }
-.panel-primary img {
+.card img {
     width: 100%;
 }
-.panel-primary ul li {
+.card ul li {
       list-style-type: none;
       margin-bottom: 5px;
       margin-left: -20px;
@@ -120,10 +125,10 @@ input[type="radio"], input[type="checkbox"] {
 .white {
   color: #FFFFFF;
 }
-.panel-heading{
+.card-header{
    width: 250px;
 }
-.panel-body{
+.card-body{
   width: 250px;
 }
 .feature-row {
@@ -160,18 +165,8 @@ input[type="radio"], input[type="checkbox"] {
   font-size: 25px;
   color: #FFFFFF;
 }
-.navbar-collapse.in {
+.navbar-collapse.show {
   overflow-y: hidden;
-}
-.navbar-header .navbar-icon-container {
-  margin-right: 15px;
-}
-.navbar-header .navbar-icon {
-  line-height: 50px;
-  height: 50px;
-}
-.navbar-header a.navbar-icon {
-  margin-left: 25px;
 }
 .tt-dropdown-menu {
   background-color: #FFFFFF;

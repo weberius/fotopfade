@@ -74,7 +74,7 @@ Setzt TASK-003 und TASK-004 voraus, da die HTML-Klassen dort erst umbenannt werd
 alle Stile greifen korrekt auf die nach TASK-003/TASK-004 umbenannten HTML-Klassen.
 
 ## Status
-Todo
+Erledigt
 
 ## Aufwand
 S

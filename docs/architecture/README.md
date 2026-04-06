@@ -26,3 +26,4 @@ Jeder ADR folgt dem Schema:
 | [ADR-005](ADR-005-markdown-modal-inhalte.md) | Markdown-Dateien für modale Dialoginhalte | Akzeptiert |
 | [ADR-006](ADR-006-geojson-service-daten.md) | GeoJSON und JSON als Datenformat für Routen und POIs | Akzeptiert |
 | [ADR-007](ADR-007-paypal-unterstuetzung.md) | PayPal-Link statt Zahlungsformular für Projektunterstützung | Akzeptiert |
+| [ADR-008](ADR-008-locale-fragment-loading.md) | Bedarfsgesteuertes Laden von Locale-Fragmenten via ModalBuilder | Akzeptiert |

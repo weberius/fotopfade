@@ -45,6 +45,9 @@ Diese fünf Tabs sollen als fünf eigenständige Burger-Menü-Einträge mit je e
 | `locales/**/properties.json` | Neue i18n-Schlüssel für die fünf Menüeintrags- und Modal-Titel ergänzen (alle Locales) |
 | `locales/**/aboutTabsHeader.html` | Dateien in allen Locale-Verzeichnissen löschen (nicht mehr benötigt) |
 | `docs/product/contracts/modaldialoge.feature` | Szenarien für das About-Modal anpassen: Tab-Szenarien entfernen, 5 eigenständige Szenarien ergänzen |
+| `docs/product/contracts/locale-fragmente.feature` | Szenario für `aboutTabsHeader.html`-Laden entfernen (Datei wird gelöscht) |
+| `docs/architecture/ADR-005-markdown-modal-inhalte.md` | `aboutTabsHeader.html` aus Beispieltabelle entfernen |
+| `docs/architecture/ADR-008-locale-fragment-loading.md` | `aboutTabsHeader.html` aus Beispieltabelle entfernen |
 
 ### Aufgaben (Tasks)
 
@@ -55,4 +58,5 @@ Diese fünf Tabs sollen als fünf eigenständige Burger-Menü-Einträge mit je e
 - [ ] **TASK-005** `assets/js/locale.js` – `aboutSelectorSpan`-Zeile durch 5 neue `innerHTML`-Zuweisungen für die neuen Span-IDs ersetzen; `ModalBuilder`-Aufruf für `aboutTabsHeader` entfernen; `ModalBuilder`-Aufrufe für die 5 Inhalts-Karten auf die neuen Card-IDs aktualisieren; Modal-Titel-Spans lokalisieren; `closeBtnAboutModal`-Referenzen anpassen *(abhängig von TASK-003)*
 - [ ] **TASK-006** `locales/**/properties.json` – Neue i18n-Schlüssel ergänzen (alle betroffenen Locale-Verzeichnisse): `geschichteTitle`, `ueberTitle`, `featuresTitle`, `linksTitle`, `resourcesTitle` sowie angepasste Bezeichnungen für die Menüeinträge *(kann parallel zu TASK-001–005 erfolgen)*
 - [ ] **TASK-007** `locales/**/aboutTabsHeader.html` – Dateien in allen Locale-Verzeichnissen entfernen *(nach TASK-005)*
-- [ ] **TASK-008** `docs/product/contracts/modaldialoge.feature` – Szenarien zum About-Modal überarbeiten: Tab-Szenarien entfernen, je ein Szenario pro neuem Dialog ergänzen *(nach TASK-004 und TASK-005)*
+- [ ] **TASK-008** `docs/product/contracts/modaldialoge.feature` + `locale-fragmente.feature` – Tab-Szenarien entfernen, je ein Szenario pro neuem Dialog ergänzen; `aboutTabsHeader`-Szenario aus `locale-fragmente.feature` entfernen *(nach TASK-004 und TASK-005)*
+- [ ] **TASK-009** `docs/architecture/ADR-005` + `ADR-008` – `aboutTabsHeader.html`-Referenzen aus den Beispieltabellen entfernen *(nach TASK-007)*

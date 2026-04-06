@@ -1,5 +1,5 @@
 var map;
-let urlroute, urlpoi, featureList;
+let urlroute, urlpoi;
 
 // get namespace from urlParameter
 if (getURLParameter("id")) {
@@ -11,31 +11,6 @@ if (getURLParameter("id")) {
 window.addEventListener("resize", function() {
   sizeLayerControl();
 });
-
-function delegatedMouseout(e) {
-  if (e.target.closest(".feature-row")) {
-    clearHighlight();
-  }
-}
-
-document.addEventListener("click", function(e) {
-  const row = e.target.closest(".feature-row");
-  if (row) {
-    document.removeEventListener("mouseout", delegatedMouseout);
-    sidebarClick(parseInt(row.getAttribute("id"), 10));
-  }
-});
-
-if ( !("ontouchstart" in window) ) {
-  document.addEventListener("mouseover", function(e) {
-    const row = e.target.closest(".feature-row");
-    if (row) {
-      highlight.clearLayers().addLayer(L.circleMarker([row.getAttribute("lat"), row.getAttribute("lng")], highlightStyle));
-    }
-  });
-}
-
-document.addEventListener("mouseout", delegatedMouseout);
 
 document.getElementById("about-btn").addEventListener("click", function() {
   bootstrap.Modal.getOrCreateInstance(document.getElementById("aboutModalDiv")).show();
@@ -93,78 +68,12 @@ document.getElementById("legend-btn").addEventListener("click", function() {
     return false;
 });
 
-document.getElementById("list-btn").addEventListener("click", function() {
-  animateSidebar();
-  return false;
-});
-
-document.getElementById("sidebar-toggle-btn") && document.getElementById("sidebar-toggle-btn").addEventListener("click", function() {
-  animateSidebar();
-  return false;
-});
-
-document.getElementById("sidebar-hide-btn").addEventListener("click", function() {
-  animateSidebar();
-  return false;
-});
-
-function animateSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  sidebar.classList.toggle("sidebar-hidden");
-  sidebar.addEventListener("transitionend", function handler() {
-    map.invalidateSize();
-    sidebar.removeEventListener("transitionend", handler);
-  });
-}
-
 function sizeLayerControl() {
   document.querySelector(".leaflet-control-layers").style.maxHeight = (document.getElementById("map").offsetHeight - 50) + "px";
 }
 
 function clearHighlight() {
   highlight.clearLayers();
-}
-
-function sidebarClick(id) {
-  var layer = markerClusters.getLayer(id);
-  map.setView([layer.getLatLng().lat, layer.getLatLng().lng], 20);
-  layer.fire("click");
-  /* Hide sidebar and go to the map on small screens */
-  if (document.body.clientWidth <= 767) {
-    document.getElementById("sidebar").style.display = "none";
-    map.invalidateSize();
-  }
-}
-
-function syncSidebar() {
-  /* Empty sidebar features */
-  document.querySelector("#feature-list tbody").innerHTML = "";
-  /* Loop through pois layer and add only features which are in the map bounds */
-  pois.eachLayer(function (layer) {
-    if (map.hasLayer(poiLayer)) {
-      if (map.getBounds().contains(layer.getLatLng())) {
-        // show number only if part of track
-        const propsnr = (layer.feature.properties.point === "p") ? layer.feature.properties.nr : " "
-        document.querySelector("#feature-list tbody").insertAdjacentHTML("beforeend",
-          '<tr class="feature-row" id="'
-            + L.stamp(layer) + '" lat="' + layer.getLatLng().lat
-            + '" lng="' + layer.getLatLng().lng
-            + '"><td style="vertical-align: middle;text-align: right" class="feature-nr">'
-            + '&nbsp;'
-            + '</td><td class="feature-name">'
-            + layer.feature.properties.name
-            + '</td><td style="vertical-align: middle;"><i class="bi bi-chevron-right float-end"></i></td></tr>');
-      }
-    }
-  });
-
-  /* Update list.js featureList */
-  featureList = new List("features", {
-    valueNames: ["feature-name"]
-  });
-  featureList.sort("feature-nr", {
-    order: "asc"
-  });
 }
 
 /* Basemap Layers */
@@ -319,17 +228,6 @@ var pois = L.geoJson(null, {
           highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
         }
       });
-      // show number only if part of track
-      const propsnr = (layer.feature.properties.point === "p") ? layer.feature.properties.nr : " "
-      document.querySelector("#feature-list tbody").insertAdjacentHTML("beforeend",
-        '<tr class="feature-row" id="'
-        + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng
-        + '"><td style="vertical-align: middle;">'
-        + '&nbsp;'
-        + '</td><td class="feature-name">'
-        + layer.feature.properties.name
-        + '</td><td style="vertical-align: middle;"><i class="bi bi-chevron-right float-end"></i></td></tr>');
-
       var tooltipOptions = {
             offset: [15, 0], // Offset des Tooltips
             direction: 'auto', // Kein Pfeil, Tooltip wird zentriert auf dem Marker.
@@ -405,20 +303,13 @@ map = L.map("map", {
 map.on("overlayadd", function(e) {
   if (e.layer === poiLayer) {
     markerClusters.addLayer(pois);
-    syncSidebar();
   }
 });
 
 map.on("overlayremove", function(e) {
   if (e.layer === poiLayer) {
     markerClusters.removeLayer(pois);
-    syncSidebar();
   }
-});
-
-/* Filter sidebar feature list to only show features in current map bounds */
-map.on("moveend", function (e) {
-  syncSidebar();
 });
 
 /* Clear feature highlight when map is clicked */
@@ -508,7 +399,7 @@ var locateControl = L.control.locate({
   }
 }).addTo(map);
 
-/* Larger screens get expanded layer control and visible sidebar */
+/* Larger screens get expanded layer control */
 if (document.body.clientWidth <= 767) {
   var isCollapsed = true;
 } else {
@@ -533,10 +424,6 @@ var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {
   collapsed: isCollapsed
 }).addTo(map);
 
-
-document.getElementById("featureModal").addEventListener("hidden.bs.modal", function(e) {
-  document.addEventListener("mouseout", delegatedMouseout);
-});
 
 // Leaflet patch to make layer control scrollable on touch browsers
 var container = document.querySelector(".leaflet-control-layers");

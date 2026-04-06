@@ -50,11 +50,6 @@ Feature: POI-Marker auf der Karte
     When das Zoomlevel unter 18 sinkt
     Then schließt sich der Tooltip des Markers
 
-  Szenario: Mouseover auf POI-Zeile in der Sidebar hebt Marker hervor
-    Given der POI-Layer ist geladen und die Sidebar ist sichtbar
-    When der Nutzer mit der Maus über eine POI-Zeile in der Sidebar fährt
-    Then wird ein türkiser Hervorhebungsmarker an der Position des POI auf der Karte angezeigt
-
   Szenario: Fallback auf Standarddaten bei unbekanntem Namespace
     Given die HEAD-Anfrage für "service/poi/<unbekannt>.geojson" antwortet mit HTTP 404
     Then werden die POIs aus "service/poi/<config.start.id>.geojson" geladen

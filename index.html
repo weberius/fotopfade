@@ -69,7 +69,6 @@
             <!-- content will be injected by Class LanguageSelector -->
           </ul>
         </li>
-        <li class="d-none d-sm-block"><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="list-btn"><i class="bi bi-layout-text-sidebar"></i>&nbsp;&nbsp;<span id="poisSelectorSpan">POIs</span></a></li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="about-btn"><i class="bi bi-question-circle"></i>&nbsp;&nbsp;<span id="aboutSelectorSpan">About</span></a></li>
       </ul>
     </div><!--/.navbar-collapse -->
@@ -77,32 +76,6 @@
 </nav>
 
 <div id="container">
-  <div id="sidebar">
-    <div class="sidebar-wrapper">
-      <div class="card" id="features">
-        <div class="card-header">
-          <h3 class="card-title"><span id="poisPanelTitle">POIs</span>
-            <button type="button" class="btn btn-sm btn-secondary float-end" id="sidebar-hide-btn"><i class="bi bi-chevron-left"></i></button></h3>
-        </div>
-        <div class="sidebar-table">
-          <table class="table table-hover" id="feature-list">
-            <thead class="hidden">
-            <tr>
-              <th>Icon</th>
-            <tr>
-            <tr>
-              <th>Name</th>
-            <tr>
-            <tr>
-              <th>Chevron</th>
-            <tr>
-            </thead>
-            <tbody class="list"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
   <div id="map"></div>
 </div>
 
@@ -287,8 +260,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.81.0/L.Control.Locate.min.js"></script>

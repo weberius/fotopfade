@@ -123,6 +123,10 @@ map.on("moveend", function (e) {
 - [ ] `map.on("moveend", …)`-Listener vollständig entfernen
 - [ ] Prüfen: Keine Referenz auf `syncSidebar`, `sidebarClick`, `animateSidebar` mehr vorhanden
 
+## Reihenfolge
+- Dieser Task muss **nach TASK-004** ausgeführt werden: `sidebarClick()` wird erst hier entfernt, wird aber noch vom Click-Handler in TASK-004 referenziert.
+- Die Änderungen in diesem Task (`list-btn`, `sidebar-hide-btn` Event-Listener) müssen **atomar mit TASK-001 und TASK-002** (HTML-Entfernung) eingespielt werden. `document.getElementById("list-btn")` und `document.getElementById("sidebar-hide-btn")` haben **keine Null-Prüfung**: Werden die HTML-Elemente entfernt, bevor die JS-Listener entfernt sind, wirft die App beim nächsten Seitenaufruf `TypeError: Cannot read properties of null (reading 'addEventListener')`.
+
 ## Ergebnis
 Alle drei Sidebar-Funktionen und ihre Aufrufe sind aus `app.js` entfernt.
 

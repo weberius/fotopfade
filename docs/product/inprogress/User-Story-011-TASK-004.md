@@ -56,13 +56,13 @@ if ( !("ontouchstart" in window) ) {
 document.addEventListener("mouseout", delegatedMouseout);
 ```
 
-**Im `featureModal` hidden-Listener** (Ende der Datei) – `delegatedMouseout`-Aufruf entfernen:
+**Im `featureModal` hidden-Listener** (Ende der Datei) – gesamten Listener entfernen:
 ```js
 document.getElementById("featureModal").addEventListener("hidden.bs.modal", function(e) {
-  document.addEventListener("mouseout", delegatedMouseout);  // ← diese Zeile entfernen
+  document.addEventListener("mouseout", delegatedMouseout);
 });
 ```
-Wenn der Listener danach leer ist, kann der gesamte Block entfernt werden.
+Der einzige Inhalt dieses Listeners ist der `delegatedMouseout`-Aufruf. Nach dessen Entfernung ist der Listener leer und muss vollständig entfernt werden (toter Code).
 
 ## Schritte
 - [ ] `featureList` aus der `let urlroute, urlpoi, featureList;`-Deklaration entfernen
@@ -70,8 +70,11 @@ Wenn der Listener danach leer ist, kann der gesamte Block entfernt werden.
 - [ ] Click-Handler für `.feature-row` entfernen
 - [ ] Mouseover-Handler für `.feature-row` entfernen
 - [ ] `document.addEventListener("mouseout", delegatedMouseout)` entfernen
-- [ ] Im `featureModal`-Handler den `delegatedMouseout`-Aufruf entfernen (ggf. gesamten leeren Listener entfernen)
+- [ ] Im `featureModal`-Handler gesamten Listener entfernen (Body nach Entfernung von `delegatedMouseout` leer = toter Code)
 - [ ] Prüfen: Keine Referenz auf `delegatedMouseout`, `feature-row`, `featureList` mehr vorhanden
+
+## Reihenfolge
+Dieser Task muss **vor TASK-005** ausgeführt werden: Der hier entfernte Click-Handler ruft `sidebarClick()` auf, das erst in TASK-005 entfernt wird. Bei umgekehrter Reihenfolge entstünde ein `ReferenceError` im Browser.
 
 ## Ergebnis
 Keine sidebar-abhängigen Event-Handler und Variablen mehr in `app.js`.

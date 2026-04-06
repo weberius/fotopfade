@@ -52,7 +52,10 @@ Diese Sidebar wird nicht mehr benötigt. POIs werden über Marker und Tooltips d
 - [ ] **TASK-001** `index.html` – Navbar-Listeneintrag `list-btn` entfernen
 - [ ] **TASK-002** `index.html` – `<div id="sidebar">` vollständig entfernen
 - [ ] **TASK-003** `assets/css/app.css` – Alle sidebar-spezifischen CSS-Regeln entfernen
-- [ ] **TASK-004** `assets/js/app.js` – `featureList`, `delegatedMouseout`, Feature-Row-Handler entfernen
-- [ ] **TASK-005** `assets/js/app.js` – `animateSidebar()`, `sidebarClick()`, `syncSidebar()` und deren Aufrufe entfernen
+- [ ] **TASK-004** `assets/js/app.js` – `featureList`, `delegatedMouseout`, Feature-Row-Handler entfernen *(vor TASK-005)*
+- [ ] **TASK-005** `assets/js/app.js` – `animateSidebar()`, `sidebarClick()`, `syncSidebar()` und deren Aufrufe entfernen *(nach TASK-004; atomar mit TASK-001/002)*
 - [ ] **TASK-006** `assets/js/app.js` – POI-Listeneintrag in `pois.onEachFeature` entfernen
 - [ ] **TASK-007** `assets/js/locale.js` – `poisSelectorSpan` und `poisPanelTitle` aus `updateContent()` entfernen
+- [ ] **TASK-008** `index.html` – `list.js` CDN-Skript-Tag entfernen *(nach TASK-005)*
+- [ ] **TASK-009** `index.html` – `handlebars.js` CDN-Skript-Tag entfernen *(unabhängig)*
+- [ ] **TASK-010** Contracts aktualisieren – `sidebar-poi-liste.feature` löschen, Szenario in `poi-marker.feature` entfernen *(nach allen anderen Tasks)*

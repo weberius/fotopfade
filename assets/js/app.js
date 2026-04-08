@@ -577,7 +577,8 @@ document.getElementById("footer-datenschutz-btn").addEventListener("click", func
   bootstrap.Modal.getOrCreateInstance(document.getElementById("fDatenschutzModal")).show();
 });
 
-document.getElementById("footer-coffee-btn").addEventListener("click", function(e) {
-  e.preventDefault();
+document.getElementById("nav-coffee-btn").addEventListener("click", function() {
   bootstrap.Modal.getOrCreateInstance(document.getElementById("fCoffeeModal")).show();
+  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
+  return false;
 });

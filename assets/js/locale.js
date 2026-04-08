@@ -57,6 +57,7 @@ function updateContent() {
     document.getElementById('featuresSelectorSpan').innerHTML = i18next.t('features');
     document.getElementById('linksSelectorSpan').innerHTML = i18next.t('links');
     document.getElementById('resourcesSelectorSpan').innerHTML = i18next.t('resources');
+    document.getElementById('coffeeSelectorSpan').innerHTML = i18next.t('unterstuetzung');
     document.getElementById('geschichteModalTitle').innerHTML = i18next.t('geschichteTitle');
     document.getElementById('ueberModalTitle').innerHTML = i18next.t('ueberTitle');
     document.getElementById('featuresModalTitle').innerHTML = i18next.t('featuresTitle');

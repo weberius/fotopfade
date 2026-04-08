@@ -32,13 +32,13 @@ document.getElementById("nav-coffee-btn").addEventListener("click", function() {
 **Hinweis zum Pattern:** Alle anderen Navbar-Button-Listener (`ueber-btn`, `geschichte-btn`, …) verwenden `return false` statt `e.preventDefault()` und rufen explizit `.hide()` auf dem Collapse auf. Obwohl `data-bs-toggle="collapse"` das Schließen der Navbar bereits übernimmt, wird das bestehende Muster hier eingehalten.
 
 ## Schritte
-- [ ] `assets/js/app.js` öffnen
-- [ ] Gesamten Listener-Block für `footer-coffee-btn` durch den neuen Block für `nav-coffee-btn` ersetzen
+- [x] `assets/js/app.js` öffnen
+- [x] Gesamten Listener-Block für `footer-coffee-btn` durch den neuen Block für `nav-coffee-btn` ersetzen
 - [ ] Im Browser prüfen: Klick auf Navbar-Eintrag „Unterstützung" öffnet `#fCoffeeModal` und schließt das Menü
 - [ ] Browser-Konsole: kein `Cannot read properties of null` Fehler
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

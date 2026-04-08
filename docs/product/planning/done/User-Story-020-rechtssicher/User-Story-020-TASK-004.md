@@ -57,12 +57,12 @@ document.getElementById('coffeeSelectorSpan').innerHTML = i18next.t('unterstuetz
 ```
 
 ## Schritte
-- [ ] Alle 9 `properties.json`-Dateien öffnen und `"unterstuetzung"`-Schlüssel ergänzen
-- [ ] `assets/js/locale.js` öffnen und Zeile für `coffeeSelectorSpan` in `updateContent()` einfügen
+- [x] Alle 9 `properties.json`-Dateien öffnen und `"unterstuetzung"`-Schlüssel ergänzen
+- [x] `assets/js/locale.js` öffnen und Zeile für `coffeeSelectorSpan` in `updateContent()` einfügen
 - [ ] Im Browser prüfen: Sprachenwechsel aktualisiert die Beschriftung des Navbar-Eintrags korrekt
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

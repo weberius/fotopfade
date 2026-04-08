@@ -21,5 +21,6 @@
   "en": "english",
   "de": "deutsch",
   "fr": "français",
+  "unterstuetzung": "Support",
   "languages": ["de", "en", "fr"]
 }

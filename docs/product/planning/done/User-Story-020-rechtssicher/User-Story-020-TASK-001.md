@@ -48,13 +48,13 @@ Der Link „Unterstützung" befindet sich derzeit als letzter Eintrag im `<foote
 ```
 
 ## Schritte
-- [ ] `index.html` öffnen
-- [ ] `<a href="#" id="footer-coffee-btn">Unterstützung</a>` aus dem `<footer>` entfernen
-- [ ] Neues `<li>` mit `nav-coffee-btn` als letzten Eintrag in `#navbarMenu` einfügen
+- [x] `index.html` öffnen
+- [x] `<a href="#" id="footer-coffee-btn">Unterstützung</a>` aus dem `<footer>` entfernen
+- [x] Neues `<li>` mit `nav-coffee-btn` als letzten Eintrag in `#navbarMenu` einfügen
 - [ ] Im Browser prüfen: Footer zeigt nur noch Impressum, Disclaimer, Datenschutz
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

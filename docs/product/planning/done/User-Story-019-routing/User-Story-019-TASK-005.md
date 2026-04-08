@@ -63,12 +63,12 @@ Feature: App-Start und Namespace-Auflösung
 ```
 
 ## Schritte
-- [ ] `docs/product/contracts/startup-und-namespace.feature` öffnen
-- [ ] Inhalt gemäß obigem Feature-File ersetzen
-- [ ] Prüfen: Alle Szenarien bilden das erwartete Verhalten nach TASK-001 und TASK-002 korrekt ab
+- [x] `docs/product/contracts/startup-und-namespace.feature` öffnen
+- [x] Inhalt aktualisiert: `#/namespace` primär, `?id=` als Redirect-Szenario, `config.start.id` entfernt
+- [x] Alle Szenarien bilden das erwartete Verhalten nach TASK-001 und TASK-002 korrekt ab
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

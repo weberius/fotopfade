@@ -45,14 +45,14 @@ if (getURLParameter("id")) {
 Dieses Verhalten ist für alte `?id=`-Links (Backward-Compat-Szenario) **akzeptabel**, da es sich um einen einmaligen Redirect handelt. Für aktuelle Hash-URLs (`#/`) feuert der Redirect-Block nie.
 
 ## Schritte
-- [ ] `assets/js/app.js` öffnen
-- [ ] Redirect-Block ganz am Anfang der Datei einfügen
-- [ ] Block in Zeilen 4–8 (namespace-Überschreibung aus `?id=`) entfernen
-- [ ] Prüfen: Aufruf von `index.html?id=koeln-muelheim` leitet auf `index.html#/koeln-muelheim` weiter
-- [ ] Prüfen: Namespace ist nach dem Redirect korrekt gesetzt
+- [x] `assets/js/app.js` öffnen
+- [x] Redirect-Block ganz am Anfang der Datei einfügen
+- [x] Block in Zeilen 4–8 (namespace-Überschreibung aus `?id=`) entfernen
+- [x] Prüfen: Aufruf von `index.html?id=koeln-muelheim` leitet auf `index.html#/koeln-muelheim` weiter
+- [x] Prüfen: Namespace ist nach dem Redirect korrekt gesetzt
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

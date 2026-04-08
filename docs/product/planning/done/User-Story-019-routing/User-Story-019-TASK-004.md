@@ -92,12 +92,12 @@ index.html#/koeln-muelheim
 ---
 
 ## Schritte
-- [ ] `docs/architecture/ADR-003-namespace-url-parameter.md` öffnen und Status auf `Superseded by ADR-011 (2026-04)` setzen
-- [ ] `docs/architecture/ADR-011-hash-routing.md` mit dem obigen Inhalt anlegen
-- [ ] Prüfen: `docs/architecture/README.md` existiert – ggf. ADR-011 in die Übersicht eintragen
+- [x] `docs/architecture/ADR-003-namespace-url-parameter.md` öffnen und Status auf `Superseded by ADR-011 (2026-04)` setzen
+- [x] `docs/architecture/ADR-011-hash-routing.md` anlegen
+- [x] `docs/architecture/README.md` – ADR-010 und ADR-011 in Tabelle eingetragen
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

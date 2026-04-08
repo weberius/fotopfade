@@ -1,4 +1,16 @@
-let namespace = "koeln-muelheim";
+let namespace = (function() {
+    // 1. Hash-Routing: index.html#/koeln-muelheim
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#/')) {
+        const seg = hash.slice(2).split('/')[0];
+        if (seg) return seg;
+    }
+    // 2. Sicherheitsnetz für den ersten Lade-Zyklus mit ?id= (vor dem Redirect in app.js)
+    const match = (new RegExp('[?|&]id=([^&;]+?)(&|#|;|$)').exec(location.search));
+    if (match && match[1]) return decodeURIComponent(match[1].replace(/\+/g, '%20'));
+    // 3. Default-Namespace
+    return "koeln-muelheim";
+})();
 let languageCode;
 
 /**************************************************************************************************/

@@ -46,15 +46,15 @@ constructor() {
 ```
 
 ## Schritte
-- [ ] `assets/js/app.js` öffnen
-- [ ] Stelle 1: Ternäre Konstruktion in der `legend-btn`-Funktion durch `var urldata = "service/data/" + namespace + ".json";` ersetzen
-- [ ] Stelle 2: Konstruktor der Klasse `URLParameter` durch `this.id = namespace;` ersetzen
-- [ ] Prüfen: Klick auf „Route" öffnet die Datentabelle mit den korrekten Daten des aktiven Fotopfads
-- [ ] Prüfen: Download-Funktion erzeugt URLs mit dem korrekten Namespace
-- [ ] Prüfen: `getURLParameter("id")` kommt in `app.js` nicht mehr vor (außer in der Methode `URLParameter.getURLParameter()`, die jedoch nach dieser Änderung totes Code-Segment ist und entfernt werden kann)
+- [x] `assets/js/app.js` öffnen
+- [x] Stelle 1: Ternäre Konstruktion in der `legend-btn`-Funktion durch `var urldata = "service/data/" + namespace + ".json";` ersetzen
+- [x] Stelle 2: Konstruktor der Klasse `URLParameter` durch `this.id = namespace;` ersetzen
+- [x] Prüfen: Klick auf „Route“ öffnet die Datentabelle mit den korrekten Daten des aktiven Fotopfads
+- [x] Prüfen: Download-Funktion erzeugt URLs mit dem korrekten Namespace
+- [x] Prüfen: `getURLParameter("id")` kommt in `app.js` nicht mehr vor
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

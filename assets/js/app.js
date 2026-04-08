@@ -1,12 +1,14 @@
 var map;
 let urlroute, urlpoi;
 
-// get namespace from urlParameter
-if (getURLParameter("id")) {
-  namespace = getURLParameter("id");
-} else {
-  namespace = config.start.id;
-}
+// Abwärtskompatibilität: ?id=name → #/name
+(function() {
+    const match = (new RegExp('[?|&]id=([^&;]+?)(&|#|;|$)').exec(location.search));
+    if (match && match[1]) {
+        const id = decodeURIComponent(match[1].replace(/\+/g, '%20'));
+        window.location.replace(window.location.pathname + '#/' + id);
+    }
+})();
 
 window.addEventListener("resize", function() {
   sizeLayerControl();
@@ -57,9 +59,7 @@ let legendTableInitialized = false;
 
 document.getElementById("legend-btn").addEventListener("click", function() {
 
-    var urldata = getURLParameter("id")
-        ? "service/data/" + getURLParameter("id") + ".json"
-        : "service/data/" + namespace + ".json";
+    var urldata = "service/data/" + namespace + ".json";
 
     var legendModalEl = document.getElementById("legendModal");
 
@@ -469,18 +469,7 @@ This class constructs an url out of urlparameter and returns url, id, path, type
 class URLParameter {
 
     constructor() {
-        if (getURLParameter("id")) {
-            this.id = getURLParameter("id");
-        } else {
-            this.id = config.start.id;
-        }
-    }
-
-    getURLParameter(name) {
-        return decodeURIComponent(
-          (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)
-          || [null, ''])[1].replace(/\+/g, '%20')
-        ) || null;
+        this.id = namespace;
     }
 
     getId() {

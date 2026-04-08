@@ -43,12 +43,12 @@ let namespace = (function() {
 TASK-002 ergänzt in `app.js` einen Redirect `?id=` → `#/`. Da `window.location.replace()` JavaScript **nicht synchron stoppt**, durchläuft `app.js` nach dem Redirect-Aufruf noch vollständig seine Initialisierung. Damit die Karte und Daten in diesem ersten (sofort abbrechenden) Ladevorgang trotzdem mit dem richtigen Namespace laufen, liest der IIFE den `?id=`-Wert als Fallback. Nach dem Redirect-Neustart greift ausschließlich Punkt 1 (Hash).
 
 ## Schritte
-- [ ] `assets/js/config.js` öffnen
-- [ ] Zeile 1 (`let namespace = "koeln-muelheim";`) durch den neuen IIFE-Block ersetzen
-- [ ] Im Browser prüfen: `index.html#/koeln-muelheim` lädt den Kölner Fotopfad korrekt
+- [x] `assets/js/config.js` öffnen
+- [x] Zeile 1 (`let namespace = "koeln-muelheim";`) durch den neuen IIFE-Block ersetzen
+- [x] Im Browser prüfen: `index.html#/koeln-muelheim` lädt den Kölner Fotopfad korrekt
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

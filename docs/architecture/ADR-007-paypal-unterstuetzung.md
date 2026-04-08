@@ -19,7 +19,11 @@ https://www.paypal.com/donate/?hosted_button_id=798KM567KPRFE
 
 Der Link öffnet PayPal in einem neuen Tab (`target="_blank"`, `rel="noopener"`). Die Webapp bleibt geöffnet. Ein erklärender Text informiert den Nutzer, dass er die App durch den Klick verlässt und einfach zurückkehren kann.
 
-Die Integration erfolgt über den modalen Dialog „Unterstützung" im Footer, dessen Inhalt aus der Markdown-Datei `bymecoffeeModalLi.md` (je Namespace und Sprache) geladen wird.
+Die Integration erfolgt über den modalen Dialog „Unterstützung", dessen Inhalt aus der Markdown-Datei `bymecoffeeModalLi.md` (je Namespace und Sprache) geladen wird.
+
+**Einstiegspunkt (aktuell):** Navbar-Menüeintrag „Unterstützung" (`nav-coffee-btn`, `bi-heart`-Icon, letzter Eintrag im Hamburger-Menü) — umgesetzt in User-Story-020.
+
+**Einstiegspunkt (ursprünglich, abgelöst):** Footer-Link `footer-coffee-btn`. Der Footer ist semantisch Pflichtangaben (Impressum, Disclaimer, Datenschutz) vorbehalten; der freiwillige CTA wurde daher in die Navbar verschoben.
 
 Frühere Implementierung (abgelöst): PayPal-Spendenformular via `<form method="post">` – dieser Ansatz würde die Webapp verlassen und wurde durch den Link-Ansatz ersetzt.
 

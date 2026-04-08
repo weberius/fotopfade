@@ -57,6 +57,24 @@ Feature: Modale Dialoge
     Then öffnet sich der Quellen-Dialog (#resourcesModalDiv)
     And der Inhalt zeigt den Text aus "locales/koeln-muelheim/de/resourcesModalLi.md"
 
+  Szenario: Unterstützungs-Dialog öffnet sich durch Klick auf letzten Navbar-Eintrag
+    When der Nutzer auf den Menüpunkt "Unterstützung" (nav-coffee-btn) klickt
+    Then öffnet sich das Unterstützungs-Modal (#fCoffeeModal)
+    And das Navbar-Menü schließt sich
+    And der Inhalt wurde aus "locales/koeln-muelheim/de/bymecoffeeModalLi.md" geladen und angezeigt
+
+  Szenario: Unterstützungs-Modal enthält einen PayPal-Link
+    Given das Unterstützungs-Modal (#fCoffeeModal) ist geöffnet
+    When der Nutzer den Inhalt liest
+    Then ist ein anklickbarer Link zu PayPal vorhanden
+    And der Link öffnet sich in einem neuen Tab (target="_blank")
+    And der Link enthält das rel-Attribut "noopener" zum Schutz vor tab-nabbing
+
+  Szenario: Unterstützungs-Dialog erscheint nicht im Footer
+    When die App geladen ist
+    Then enthält der Footer keinen Link mit der ID "footer-coffee-btn"
+    And enthält der Footer keinen Link mit dem Text "Unterstützung"
+
   # --- Routen-Modal (legendModal) ---
 
   Szenario: Routen-Modal wird durch Klick auf "Route" im Menü geöffnet

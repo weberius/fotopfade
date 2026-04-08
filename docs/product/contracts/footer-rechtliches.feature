@@ -1,19 +1,20 @@
 # language: de
-Feature: Footer und rechtliche Modalinhalte
+Feature: Footer und rechtliche Pflichtangaben
 
   Als Nutzer der Fotopfade-App
-  möchte ich jederzeit Zugang zu rechtlichen Informationen (Impressum, Datenschutz, Disclaimer)
-  und zur Unterstützungsmöglichkeit haben,
-  damit ich meine Rechte kenne und das Projekt unterstützen kann.
+  möchte ich jederzeit Zugang zu den rechtlich vorgeschriebenen Angaben (Impressum, Datenschutz, Disclaimer)
+  haben,
+  damit ich meine Rechte kenne und die App rechtssicher betrieben wird.
 
   Hintergrund:
     Given die App ist gestartet mit dem Namespace "koeln-muelheim"
     And die Sprache ist "de"
 
-  Szenario: Footer zeigt die vier rechtlichen Links
+  Szenario: Footer zeigt genau die drei rechtlichen Pflichtlinks
     When die App geladen ist
     Then ist im Footer ein Navigationsbereich sichtbar
-    And er enthält die Links "Impressum", "Disclaimer", "Datenschutz" und "Unterstützung"
+    And er enthält genau die Links "Impressum", "Disclaimer" und "Datenschutz"
+    And er enthält keinen Link "Unterstützung"
 
   Szenario: Klick auf "Impressum" öffnet das Impressum-Modal
     When der Nutzer auf den Footer-Link "Impressum" klickt
@@ -29,18 +30,6 @@ Feature: Footer und rechtliche Modalinhalte
     When der Nutzer auf den Footer-Link "Datenschutz" klickt
     Then öffnet sich das Modal #fDatenschutzModal
     And der Inhalt wurde aus "locales/koeln-muelheim/de/datenschutzLi.md" geladen und angezeigt
-
-  Szenario: Klick auf "Unterstützung" öffnet das Unterstützungs-Modal
-    When der Nutzer auf den Footer-Link "Unterstützung" klickt
-    Then öffnet sich das Modal #fCoffeeModal
-    And der Inhalt wurde aus "locales/koeln-muelheim/de/bymecoffeeModalLi.md" geladen und angezeigt
-
-  Szenario: Unterstützungs-Modal enthält einen PayPal-Link
-    Given das Unterstützungs-Modal ist geöffnet
-    When der Nutzer den Inhalt liest
-    Then ist ein anklickbarer Link zu PayPal vorhanden
-    And der Link öffnet sich in einem neuen Tab (target="_blank")
-    And der Link enthält das rel-Attribut "noopener" zum Schutz vor tab-nabbing
 
   Szenario: Footer-Modalinhalte sind namespace- und sprachspezifisch
     Given die App wird mit einem anderen Namespace gestartet, z.B. "frankenberg"

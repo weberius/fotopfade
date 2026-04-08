@@ -62,6 +62,7 @@ function updateContent() {
     document.getElementById('featuresModalTitle').innerHTML = i18next.t('featuresTitle');
     document.getElementById('linksModalTitle').innerHTML = i18next.t('linksTitle');
     document.getElementById('resourcesModalTitle').innerHTML = i18next.t('resourcesTitle');
+    document.getElementById('attributionModalTitle').innerHTML = i18next.t('attributionTitle');
     new ModalBuilder().loadMarkdown('attributionModalLi', i18next.language);
     new ModalBuilder().loadMarkdown('resourcesModalLi', i18next.language);
     new ModalBuilder().loadMarkdown('featuresModalLi', i18next.language);

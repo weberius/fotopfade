@@ -19,9 +19,11 @@ Zusätzlich wird am Anfang von `app.js` ein Redirect ergänzt: Wenn ein Nutzer e
 if (getURLParameter("id")) {
   namespace = getURLParameter("id");
 } else {
-  namespace = config.start.id;
+  namespace = config.start.id; // BUG: config-Objekt existiert nicht (ADR-003) → ReferenceError wenn ?id= fehlt
 }
 ```
+
+> Dieser Block wird vollständig entfernt. Die Namespace-Auflösung übernimmt ab jetzt ausschließlich der IIFE in `config.js` (TASK-001).
 
 ## Einzufügender Redirect-Block (ganz am Anfang von app.js, vor allem anderen)
 
@@ -35,6 +37,12 @@ if (getURLParameter("id")) {
     }
 })();
 ```
+
+## Wichtiger Hinweis: `window.location.replace()` stoppt JavaScript nicht synchron
+
+`window.location.replace()` löst in modernen Browsern **keine synchrone Unterbrechung** der Skriptausführung aus. Das bedeutet: Nach dem Redirect-Aufruf läuft der Rest von `app.js` (Event-Listener-Registrierungen, Karten-Initialisierung) noch vollständig durch, bevor der Browser navigiert. Die App baut sich kurz auf und verwirft alles wieder.
+
+Dieses Verhalten ist für alte `?id=`-Links (Backward-Compat-Szenario) **akzeptabel**, da es sich um einen einmaligen Redirect handelt. Für aktuelle Hash-URLs (`#/`) feuert der Redirect-Block nie.
 
 ## Schritte
 - [ ] `assets/js/app.js` öffnen

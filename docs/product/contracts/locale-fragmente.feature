@@ -62,6 +62,12 @@ Feature: Laden von Locale-Fragmenten aus dem locales-Verzeichnis
     And HTML-Fragmente enden auf ".html"
     And Markdown-Fragmente enden auf ".md"
 
+  Szenario: Markdown-Fragment für die Attribution wird geladen
+    When die Methode ModalBuilder.loadMarkdown("attributionModalLi", "de") aufgerufen wird
+    Then wird eine HTTP GET-Anfrage an "locales/koeln-muelheim/de/attributionModalLi.md" gesendet
+    And das Markdown wird mit marked.js in HTML konvertiert
+    And der HTML-Inhalt wird in das DOM-Element mit der ID "attributionModalLi" injiziert
+
   Szenario: Fehlerhafter Pfad führt zu leerem Modal ohne sichtbare Fehlermeldung
     Given für ein Fragment existiert keine Datei unter dem erwarteten Pfad
     When ModalBuilder das Fragment abrufen will

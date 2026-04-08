@@ -92,3 +92,8 @@ Feature: Modale Dialoge
     When der Nutzer auf den "Attribution"-Link in der Kartenattribution klickt
     Then öffnet sich das Attributions-Modal (#attributionModal)
     And der Inhalt zeigt die aus "locales/koeln-muelheim/de/attributionModalLi.md" geladenen Quellenangaben
+
+  Szenario: Attributions-Modal zeigt einen lokalisierten Titel
+    Given das Attributions-Modal ist geöffnet
+    Then zeigt die Modal-Überschrift den Wert von "attributionTitle" aus properties.json
+    And der Titel lautet standardmäßig "Attribution"

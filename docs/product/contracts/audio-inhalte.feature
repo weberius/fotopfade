@@ -21,9 +21,9 @@ Feature: Audio-Inhalte in POI-Beschreibungen und Modaldialogen
     Then wird im Inhalt des Startmodals ein HTML5-Audio-Player angezeigt
     And der Audio-Player verweist auf "locales/koeln-muelheim/de/start.mp3"
 
-  Szenario: Geschichts-Reiter im About-Modal enthält einen Audio-Player
+  Szenario: Geschichte-Dialog enthält einen Audio-Player
     Given die Markdown-Datei "locales/koeln-muelheim/de/expectModalLi.md" enthält eine <audio>-Einbettung
-    When der Nutzer den Reiter "Geschichte" im About-Modal öffnet
+    When der Nutzer den Menüpunkt "Geschichte" anklickt und der Geschichte-Dialog (#geschichteModalDiv) öffnet sich
     Then wird ein HTML5-Audio-Player mit dem Verweis auf "locales/koeln-muelheim/de/geschichte.mp3" angezeigt
 
   Szenario: Audio-Player respektiert den vollständigen Pfad aus dem locales-Verzeichnis

@@ -26,9 +26,10 @@ Feature: Interaktive Kartenansicht
     Then zoomt die Karte automatisch auf die Ausdehnung der Route
 
   Szenario: Fallback auf Standardroute bei unbekanntem Namespace
-    Given der URL-Parameter "id" ist auf einen nicht vorhandenen Namespace gesetzt
+    Given der URL-Hash enthält einen nicht vorhandenen Namespace
     When die HEAD-Anfrage für die Route mit HTTP 404 antwortet
-    Then wird die Route aus "service/route/<config.start.id>.geojson" geladen
+    Then wird die Route aus "service/route/<standard-namespace>.geojson" geladen
+    And der Standard-Namespace ist der in "assets/js/config.js" als Literalwert hinterlegte Default-Namespace
 
   Szenario: OpenStreetMap als alternative Kartenebene
     When der Nutzer in der Ebenenauswahl "OpenStreetMap" wählt

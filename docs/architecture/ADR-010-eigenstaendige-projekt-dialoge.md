@@ -1,7 +1,7 @@
 # ADR-010: Eigenständige modale Dialoge für Projektinhalte statt Tab-Navigation
 
 **Datum:** 2026-04  
-**Status:** Vorgeschlagen
+**Status:** Akzeptiert
 
 ---
 

@@ -52,4 +52,5 @@ Feature: POI-Marker auf der Karte
 
   Szenario: Fallback auf Standarddaten bei unbekanntem Namespace
     Given die HEAD-Anfrage für "service/poi/<unbekannt>.geojson" antwortet mit HTTP 404
-    Then werden die POIs aus "service/poi/<config.start.id>.geojson" geladen
+    Then werden die POIs aus "service/poi/<standard-namespace>.geojson" geladen
+    And der Standard-Namespace ist der in "assets/js/config.js" als Literalwert hinterlegte Default-Namespace

@@ -11,7 +11,8 @@ Die Logik zum Auslesen des Namespace aus dem URL soll zentralisiert in `config.j
 ## Technische Details
 - Betroffene Datei: `assets/js/config.js`
 - Hash-Format: `#/koeln-muelheim` → `window.location.hash` liefert `"#/koeln-muelheim"`
-- Priorität: Hash-Pfad > Query-Parameter `?id=` (Abwärtskompatibilität) > Default aus `config.start.id`
+- Priorität: Hash-Pfad > Query-Parameter `?id=` (Abwärtskompatibilität) > Hardcoded Default in Zeile 1
+- Hinweis: Ein `config`-Objekt existiert **nicht** (ADR-003). Der Default-Namespace ist der bisherige Literalwert in Zeile 1.
 
 ## Zu ändernder Code
 
@@ -29,16 +30,17 @@ let namespace = (function() {
         const seg = hash.slice(2).split('/')[0];
         if (seg) return seg;
     }
-    // 2. Abwärtskompatibilität: ?id=koeln-muelheim
+    // 2. Sicherheitsnetz für den ersten Lade-Zyklus mit ?id= (vor dem Redirect aus TASK-002)
     const match = (new RegExp('[?|&]id=([^&;]+?)(&|#|;|$)').exec(location.search));
     if (match && match[1]) return decodeURIComponent(match[1].replace(/\+/g, '%20'));
-    // 3. Default
+    // 3. Default-Namespace (entspricht dem bisherigen Literalwert in Zeile 1)
     return "koeln-muelheim";
 })();
 ```
 
 ## Hinweis
-Durch die Abwärtskompatibilität in Punkt 2 funktionieren bestehende `?id=`-Links weiterhin. TASK-002 ergänzt eine aktive Umleitung (Redirect) für diese Links.
+**Warum `?id=`-Sicherheitsnetz in config.js (Punkt 2)?**  
+TASK-002 ergänzt in `app.js` einen Redirect `?id=` → `#/`. Da `window.location.replace()` JavaScript **nicht synchron stoppt**, durchläuft `app.js` nach dem Redirect-Aufruf noch vollständig seine Initialisierung. Damit die Karte und Daten in diesem ersten (sofort abbrechenden) Ladevorgang trotzdem mit dem richtigen Namespace laufen, liest der IIFE den `?id=`-Wert als Fallback. Nach dem Redirect-Neustart greift ausschließlich Punkt 1 (Hash).
 
 ## Schritte
 - [ ] `assets/js/config.js` öffnen

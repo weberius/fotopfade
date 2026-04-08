@@ -19,7 +19,9 @@ Feature: Mehrsprachigkeit und Sprachumschaltung
     Given die Datei "locales/koeln-muelheim/de/properties.json" ist geladen
     When updateContent() aufgerufen wird
     Then zeigt der Navigationstitel (brand) den Wert von "brand" aus properties.json
-    And zeigen alle UI-Labels (closeBtn, zoom, route, pois, language, about) die übersetzten Werte
+    And zeigen alle UI-Labels (closeBtn, zoom, route, pois, language) die übersetzten Werte
+    And zeigen die Burger-Menü-Einträge (geschichte, ueber, features, links, resources) die übersetzten Werte
+    And zeigen die Modal-Titel (geschichteTitle, ueberTitle, featuresTitle, linksTitle, resourcesTitle, attributionTitle) die übersetzten Werte
 
   Szenario: Sprachmenü zeigt die im Namespace konfigurierten Sprachen
     Given properties.json enthält den Schlüssel "languages" mit den Werten z.B. ["de"]

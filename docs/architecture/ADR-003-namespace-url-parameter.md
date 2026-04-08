@@ -1,7 +1,7 @@
 # ADR-003: Namespace-Konzept zur Mehrfachnutzung über URL-Parameter
 
 **Datum:** 2024  
-**Status:** Akzeptiert
+**Status:** Superseded by ADR-011 (2026-04)
 
 ---
 

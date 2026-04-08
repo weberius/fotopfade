@@ -6,22 +6,28 @@ Feature: App-Start und Namespace-Auflösung
   damit der richtige Pfad, die richtigen Daten und die richtige Sprache geladen werden.
 
   Hintergrund:
-    Given die Datei "assets/js/config.js" definiert "config.start.id" als Standard-Namespace
+    Given die Datei "assets/js/config.js" definiert den Standard-Namespace als Literalwert in Zeile 1
 
-  Szenario: App-Start mit Namespace über URL-Parameter
-    Given die App wird aufgerufen mit der URL "index.html?id=koeln-muelheim"
+  Szenario: App-Start mit Namespace über Hash-Routing (primäre URL-Form, ADR-011)
+    Given die App wird aufgerufen mit der URL "index.html#/koeln-muelheim"
     When die App initialisiert wird
-    Then wird der Namespace "koeln-muelheim" aus dem URL-Parameter "id" gelesen
+    Then wird der Namespace "koeln-muelheim" aus dem URL-Hash "#/koeln-muelheim" gelesen
     And alle Datenpfade verwenden den Namespace "koeln-muelheim"
 
-  Szenario: App-Start ohne URL-Parameter fällt auf Standardkonfiguration zurück
-    Given die App wird aufgerufen ohne den URL-Parameter "id"
+  Szenario: App-Start ohne Parameter fällt auf Standard-Namespace zurück
+    Given die App wird aufgerufen ohne Hash-Pfad und ohne URL-Parameter "id"
     When die App initialisiert wird
-    Then wird der Namespace aus "config.start.id" gelesen
+    Then wird der in "assets/js/config.js" hinterlegte Standard-Namespace als Literalwert verwendet
     And alle Datenpfade verwenden den konfigurierten Standard-Namespace
 
+  Szenario: Veralteter ?id=-Link wird auf Hash-URL umgeleitet (Abwärtskompatibilität)
+    Given die App wird aufgerufen mit der veralteten URL "index.html?id=koeln-muelheim"
+    When die App initialisiert wird
+    Then leitet "assets/js/app.js" den Browser per window.location.replace auf "index.html#/koeln-muelheim" weiter
+    And nach dem Redirect wird der Namespace "koeln-muelheim" aus dem Hash gelesen
+
   Szenario: Sprachauswahl wird über den URL-Parameter "lng" erzwungen
-    Given die App wird aufgerufen mit der URL "index.html?id=koeln-muelheim&lng=de"
+    Given die App wird aufgerufen mit der URL "index.html#/koeln-muelheim?lng=de"
     When die App initialisiert wird
     Then wird die Sprache auf "de" gesetzt, unabhängig von der Browsersprache
 

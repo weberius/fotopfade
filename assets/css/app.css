@@ -98,6 +98,13 @@ input[type="radio"], input[type="checkbox"] {
     width: 100%;
 }
 
+#startModalBody img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
 .progress-bar-full {
   width: 100%;
 }

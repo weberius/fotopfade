@@ -1,4 +1,4 @@
-![Köln Mülheim](./images/koeln-muelheim/start.jpg#pano)
+![Köln Mülheim](./images/koeln-muelheim/start.jpg)
 
 <audio controls class="full-width-audio">
   <source src="locales/koeln-muelheim/de/start.mp3" type="audio/mpeg">

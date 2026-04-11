@@ -34,17 +34,17 @@ Der neue CTA-Button „Tour starten" benötigt einen i18n-Schlüssel in `propert
 Falls eine `properties.json` den Schlüssel `"unterstuetzung"` noch nicht enthält (ältere Routen), wird `tourStarten` als letzter Eintrag vor der schließenden `}` eingefügt.
 
 ## Schritte
-- [ ] `locales/frankenberg/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/fritzlar/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/homberg/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/koeln-innenstadt/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/koeln-muelheim/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/korbach/de/properties.json` – Schlüssel ergänzen
-- [ ] `locales/moers/de/properties.json` – Schlüssel ergänzen
-- [ ] JSON-Syntax in allen Dateien prüfen (kein abschließendes Komma beim letzten Eintrag)
+- [x] `locales/frankenberg/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/fritzlar/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/homberg/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/koeln-innenstadt/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/koeln-muelheim/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/korbach/de/properties.json` – Schlüssel ergänzt
+- [x] `locales/moers/de/properties.json` – Schlüssel ergänzt
+- [x] JSON-Syntax in allen Dateien geprüft
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 S

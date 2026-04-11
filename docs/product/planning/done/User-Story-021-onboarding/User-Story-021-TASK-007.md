@@ -46,15 +46,15 @@ _Die Inhalte wurden unter Einsatz von KI-Werkzeugen erstellt und sorgfältig üb
 
 ## Schritte
 - [x] `locales/koeln-muelheim/de/startModalBody.md` – Prototyp (erledigt)
-- [ ] `locales/frankenberg/de/startModalBody.md` – Struktur anpassen
-- [ ] `locales/fritzlar/de/startModalBody.md` – Struktur anpassen
-- [ ] `locales/korbach/de/startModalBody.md` – Struktur anpassen
+- [x] `locales/frankenberg/de/startModalBody.md` – Struktur angepasst
+- [x] `locales/fritzlar/de/startModalBody.md` – Struktur angepasst
+- [x] `locales/korbach/de/startModalBody.md` – Struktur angepasst
 - [ ] `locales/homberg/de/startModalBody.md` – anlegen, wenn Content vorhanden
 - [ ] `locales/koeln-innenstadt/de/startModalBody.md` – anlegen, wenn Content vorhanden
 - [ ] `locales/moers/de/startModalBody.md` – anlegen, wenn Content vorhanden
 
 ## Status
-Teilweise erledigt (koeln-muelheim fertig)
+Teilweise erledigt (homberg, koeln-innenstadt, moers: ausstehend bis Content-Lieferung)
 
 ## Aufwand
 S

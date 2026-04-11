@@ -27,13 +27,13 @@ Die spezifische Regel für `#startModalBody` ist immer anzuwenden, da sie gilt u
 Einfügeposition: direkt nach der bestehenden `.modal-body img`-Regel (Zeile ~100).
 
 ## Schritte
-- [ ] `assets/css/app.css` öffnen
-- [ ] Block `.modal-body img` (Zeile ~97) aufsuchen
-- [ ] Neue Regel `#startModalBody img` direkt darunter einfügen
+- [x] `assets/css/app.css` öffnen
+- [x] Block `.modal-body img` (Zeile ~97) aufsuchen
+- [x] Neue Regel `#startModalBody img` direkt darunter einfügen
 - [ ] Im Browser prüfen: Panoramabild füllt die modale Breite vollständig, kein weißer Spalt unterhalb des Bildes
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

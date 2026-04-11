@@ -26,13 +26,13 @@ document.getElementById("start-tour-btn").addEventListener("click", function() {
 Die `isValid()`-Prüfung schützt vor einem Fehler bei noch nicht geladener Route-Geometrie (sollte im Normalbetrieb nicht auftreten, da das Modal erst nach erfolgreichem Laden der Route angezeigt wird).
 
 ## Schritte
-- [ ] `assets/js/app.js` öffnen
-- [ ] `full-extent-btn`-Handler (~Zeile 47) aufsuchen
-- [ ] Event-Listener für `start-tour-btn` direkt darunter (nach Zeile ~52) einfügen
-- [ ] Im Browser prüfen: Klick auf „Tour starten" schließt Modal und zoomt auf gesamte Route
+- [x] `assets/js/app.js` öffnen
+- [x] `full-extent-btn`-Handler (~Zeile 47) aufsuchen
+- [x] Event-Listener für `start-tour-btn` direkt darunter (nach Zeile ~52) einfügen
+- [ ] Im Browser prüfen: Klick auf „Tour starten“ schließt Modal und zoomt auf gesamte Route
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

@@ -58,6 +58,7 @@ function updateContent() {
     document.getElementById('linksSelectorSpan').innerHTML = i18next.t('links');
     document.getElementById('resourcesSelectorSpan').innerHTML = i18next.t('resources');
     document.getElementById('coffeeSelectorSpan').innerHTML = i18next.t('unterstuetzung');
+    document.getElementById('startTourBtnLabel').innerHTML = i18next.t('tourStarten');
     document.getElementById('geschichteModalTitle').innerHTML = i18next.t('geschichteTitle');
     document.getElementById('ueberModalTitle').innerHTML = i18next.t('ueberTitle');
     document.getElementById('featuresModalTitle').innerHTML = i18next.t('featuresTitle');

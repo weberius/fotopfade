@@ -27,13 +27,13 @@ document.getElementById('startTourBtnLabel').innerHTML = i18next.t('tourStarten'
 ```
 
 ## Schritte
-- [ ] `assets/js/locale.js` öffnen
-- [ ] Zeile mit `coffeeSelectorSpan` (Zeile ~61) aufsuchen
-- [ ] Neue Zeile für `startTourBtnLabel` unmittelbar darunter einfügen
+- [x] `assets/js/locale.js` öffnen
+- [x] Zeile mit `coffeeSelectorSpan` aufsuchen
+- [x] Neue Zeile für `startTourBtnLabel` unmittelbar darunter einfügen
 - [ ] Im Browser prüfen: Button-Label ändert sich beim Sprachwechsel korrekt
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

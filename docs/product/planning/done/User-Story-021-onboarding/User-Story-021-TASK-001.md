@@ -31,13 +31,13 @@ Das `#startModal` schließt sich derzeit automatisch nach 30 Sekunden (zwei `set
 Beide Blöcke werden vollständig entfernt. Kein Ersatz erforderlich.
 
 ## Schritte
-- [ ] `assets/js/app.js` öffnen
-- [ ] Ersten `setTimeout`-Block (Zeilen ~169–171) entfernen
-- [ ] Zweiten `setTimeout`-Block (Zeilen ~185–187) entfernen
+- [x] `assets/js/app.js` öffnen
+- [x] Ersten `setTimeout`-Block (Zeilen ~169–171) entfernen
+- [x] Zweiten `setTimeout`-Block (Zeilen ~185–187) entfernen
 - [ ] Im Browser prüfen: Modal bleibt nach dem Laden unbegrenzt offen
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

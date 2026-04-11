@@ -34,13 +34,13 @@ Im Footer des `#startModal` gibt es bisher nur einen sekundären „Schliessen"-
 `data-bs-dismiss="modal"` wird am CTA-Button **nicht** gesetzt, da das Schließen von einem eigenen Event-Listener in TASK-003 übernommen wird (inklusive `map.fitBounds()`).
 
 ## Schritte
-- [ ] `index.html` öffnen
-- [ ] `<div class="modal-footer">` im `#startModal` (Zeile ~45) suchen
-- [ ] Neuen `btn-primary`-Button mit ID `start-tour-btn` vor dem bestehenden Button einfügen
+- [x] `index.html` öffnen
+- [x] `<div class="modal-footer">` im `#startModal` (Zeile ~45) suchen
+- [x] Neuen `btn-primary`-Button mit ID `start-tour-btn` vor dem bestehenden Button einfügen
 - [ ] Im Browser prüfen: Footer zeigt zwei Buttons; primärer Button ist optisch hervorgehoben
 
 ## Status
-Offen
+Erledigt
 
 ## Aufwand
 XS

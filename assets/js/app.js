@@ -51,6 +51,13 @@ document.getElementById("full-extent-btn").addEventListener("click", function() 
   return false;
 });
 
+document.getElementById("start-tour-btn").addEventListener("click", function() {
+  if (routes.getBounds().isValid()) {
+    map.fitBounds(routes.getBounds());
+  }
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
+});
+
 /**************************************************************************************************/
 // FILL TABLE
 /**************************************************************************************************/
@@ -165,10 +172,6 @@ fetch(urlroute, {
           map.fitBounds(routes.getBounds());
           sizeLayerControl();
           bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
-          // Automatisch nach 30 Sekunden schließen
-          setTimeout(function() {
-            bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
-          }, 30000);
         }
       }).catch(error => console.error('Fehler beim Laden der Route:', error));
     } else {
@@ -181,10 +184,6 @@ fetch(urlroute, {
           map.fitBounds(routes.getBounds());
           sizeLayerControl();
           bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
-          // Automatisch nach 30 Sekunden schließen
-          setTimeout(function() {
-            bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
-          }, 30000);
         }
       }).catch(error => console.error('Fehler beim Laden der Route:', error));
     }

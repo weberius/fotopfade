@@ -30,3 +30,4 @@ Jeder ADR folgt dem Schema:
 | [ADR-009](ADR-009-datatables-jquery-abhaengigkeit.md) | DataTables CDN-Build erfordert jQuery als Peer-Abhängigkeit | Akzeptiert |
 | [ADR-010](ADR-010-eigenstaendige-projekt-dialoge.md) | Eigenständige modale Dialoge für Projektinhalte statt Tab-Navigation | Akzeptiert |
 | [ADR-011](ADR-011-hash-routing.md) | Hash-Routing für Namespace-URL-Konvention | Akzeptiert |
+| [ADR-012](ADR-012-modal-nutzeraktion.md) | Modale Dialoge schließen sich nur durch explizite Nutzeraktion | Akzeptiert |

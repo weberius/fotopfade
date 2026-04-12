@@ -17,11 +17,17 @@ let languageCode;
 // GET LANGUAGE
 /**************************************************************************************************/
 
-let browserLanguage = navigator.language.split('-')[0] || navigator.userLanguage.split('-')[0];
-if (getURLParameter('lng')) {
-    browserLanguage = getURLParameter('lng');
-}
-console.log("Browsersprache: ", browserLanguage);
+// Startsprache: URL-Parameter → localStorage → Browser → 'de'
+let browserLanguage = (function () {
+    var urlLng = getURLParameter('lng');
+    if (urlLng) return urlLng;
+    try {
+        var stored = localStorage.getItem('fotopfade_language');
+        if (stored) return stored;
+    } catch (e) { /* SecurityError in privatem Modus (iOS Safari) — ignorieren */ }
+    return (navigator.language || navigator.userLanguage || 'de').split('-')[0];
+})();
+console.log('Startsprache:', browserLanguage);
 
 /**************************************************************************************************/
 // URL PARAMETER START

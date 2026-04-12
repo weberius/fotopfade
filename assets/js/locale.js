@@ -51,7 +51,7 @@ function updateContent() {
     document.getElementById('closeBtnFeatureModel').innerHTML = i18next.t('closeBtn');
     document.getElementById('hilfeModalTitle').innerHTML = i18next.t('hilfeTitle');
     document.getElementById('closeBtnHilfeModal').innerHTML = i18next.t('closeBtn');
-    document.getElementById('languageSelectorA').innerHTML = i18next.t('language');
+    document.getElementById('lang-btn-label').textContent = (i18next.language || 'de').split('-')[0].toUpperCase();
     document.getElementById('zoomSelectorSpan').innerHTML = i18next.t('zoom');
     document.getElementById('routeSelectorSpan').innerHTML = i18next.t('route');
     document.getElementById('geschichteSelectorSpan').innerHTML = i18next.t('geschichte');
@@ -106,9 +106,9 @@ class LanguageSelector {
         lng = i18next.t(newLanguage);
         newLi = document.createElement('li');
         if (newLanguage === existingLanguage) {
-          newLi.innerHTML = '<a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;<i>' + lng + '</i></a>';
+          newLi.innerHTML = '<a href="#" class="dropdown-item active" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;<i>' + lng + '</i></a>';
         } else {
-          newLi.innerHTML = '<a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;' + lng + '</a>';
+          newLi.innerHTML = '<a href="#" class="dropdown-item" onclick="changeLanguage(event, \'' + newLanguage + '\')"><i class="bi bi-translate"></i>&nbsp;&nbsp;' + lng + '</a>';
         }
         targetElement = document.getElementById('languageSelectorUl');
         targetElement.appendChild(newLi);
@@ -123,8 +123,8 @@ function changeLanguage(event, language) {
         if (err) {
             return console.error('Error changing language:', err);
         }
-        languageCode = i18next.language;
+        try { localStorage.setItem('fotopfade_language', language); } catch (e) { /* privater Modus */ }
+        languageCode = i18next.language.split('-')[0];
         updateContent();
-//        console.log('Sprache geändert auf:', languageCode);
     });
 }

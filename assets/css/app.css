@@ -214,6 +214,32 @@ input[type="radio"], input[type="checkbox"] {
   }
 }
 
+/* -----------------------------------------------------------------------
+   Sprach-Button im Header (User-Story-024)
+   ----------------------------------------------------------------------- */
+
+/* Grundstil: dezenter Button, passt zur dunklen Navbar */
+.lang-btn {
+  font-size: 13px;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.lang-btn:hover,
+.lang-btn:focus {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Auf sehr kleinen Screens: Text ausblenden, nur Icon zeigen */
+@media (max-width: 400px) {
+  #lang-btn-label {
+    display: none;
+  }
+}
+
 .red-label {
   border-radius: 10px;
   padding: 3px;

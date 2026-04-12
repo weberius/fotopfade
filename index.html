@@ -69,6 +69,17 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" id="brand">Pfade</a>
+    <div class="dropdown ms-auto me-2">
+      <button id="lang-btn" class="btn btn-sm btn-outline-light dropdown-toggle lang-btn"
+              type="button" data-bs-toggle="dropdown" aria-expanded="false"
+              aria-label="Sprache wählen">
+        <i class="bi bi-globe2"></i> <span id="lang-btn-label">DE</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" id="languageSelectorUl"
+          aria-labelledby="lang-btn">
+        <!-- content will be injected by LanguageSelector -->
+      </ul>
+    </div>
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarMenu"
             aria-controls="navbarMenu" aria-expanded="false"
@@ -80,12 +91,6 @@
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="full-extent-btn"><i class="bi bi-play-fill"></i>&nbsp;<span id="zoomSelectorSpan">Zoom</span></a></li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="legend-btn"><i class="bi bi-table"></i>&nbsp;<span id="routeSelectorSpan">Route</span></a></li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="gallery-btn"><i class="bi bi-images"></i>&nbsp;<span id="gallerySelectorSpan">Galerie</span></a></li>
-        <li class="dropdown">
-          <a id="toolsDrop" href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-globe2"></i>&nbsp;&nbsp;<span id="languageSelectorA">Sprache</span></a>
-          <ul class="dropdown-menu" id="languageSelectorUl">
-            <!-- content will be injected by Class LanguageSelector -->
-          </ul>
-        </li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="geschichte-btn"><i class="bi bi-person-check"></i>&nbsp;<span id="geschichteSelectorSpan">Geschichte</span></a></li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="ueber-btn"><i class="bi bi-question-circle"></i>&nbsp;<span id="ueberSelectorSpan">Über das Projekt</span></a></li>
         <li><a href="#" data-bs-toggle="collapse" data-bs-target="#navbarMenu" id="features-btn"><i class="bi bi-ui-checks"></i>&nbsp;<span id="featuresSelectorSpan">Features</span></a></li>

@@ -49,6 +49,8 @@ function updateContent() {
     document.getElementById('closeBtnResourcesModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('closeBtnLegendModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('closeBtnFeatureModel').innerHTML = i18next.t('closeBtn');
+    document.getElementById('hilfeModalTitle').innerHTML = i18next.t('hilfeTitle');
+    document.getElementById('closeBtnHilfeModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('languageSelectorA').innerHTML = i18next.t('language');
     document.getElementById('zoomSelectorSpan').innerHTML = i18next.t('zoom');
     document.getElementById('routeSelectorSpan').innerHTML = i18next.t('route');
@@ -73,6 +75,7 @@ function updateContent() {
     new ModalBuilder().loadMarkdown('expectModalLi', i18next.language);
     new ModalBuilder().loadMarkdown('aboutModalLi', i18next.language);
     new ModalBuilder().loadMarkdown('startModalBody', i18next.language);
+    new ModalBuilder().loadMarkdown('hilfeModalLi', i18next.language);
     new ModalBuilder().build('leaflet-control-attribution', i18next.language);
 
     // Footer modals

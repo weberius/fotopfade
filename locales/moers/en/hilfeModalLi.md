@@ -1,0 +1,4 @@
+- **Arrow symbol (GPS):** Use the arrow symbol to display your current position on the map at any time.
+- **Route:** "Route" shows distances between points of interest.
+- **About the project:** Under "About" you will find interesting background information about the project.
+- **Gallery:** In the "Gallery" you can browse through the most beautiful images at your leisure.

@@ -422,6 +422,31 @@ var locateControl = L.control.locate({
   }
 }).addTo(map);
 
+/**************************************************************************************************/
+// HELP CONTROL
+/**************************************************************************************************/
+
+var HelpControl = L.Control.extend({
+  options: {
+    position: 'bottomright'
+  },
+  onAdd: function(map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+    var button = L.DomUtil.create('a', 'leaflet-control-hilfe-btn', container);
+    button.innerHTML = '?';
+    button.href = '#';
+    button.title = 'Hilfe';
+    L.DomEvent.on(button, 'click', function(e) {
+      L.DomEvent.stopPropagation(e);
+      e.preventDefault();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('hilfeModalDiv')).show();
+    });
+    return container;
+  }
+});
+
+new HelpControl().addTo(map);
+
 /* Larger screens get expanded layer control */
 if (document.body.clientWidth <= 767) {
   var isCollapsed = true;

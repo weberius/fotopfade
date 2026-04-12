@@ -1,0 +1,4 @@
+- **Symbole de flèche (GPS) :** Utilisez le symbole de flèche pour afficher votre position sur la carte à tout moment.
+- **Route :** « Route » affiche les distances entre les points d'intérêt.
+- **À propos du projet :** Sous « À propos » vous trouverez des informations de fond intéressantes sur le projet.
+- **Galerie :** Dans la « Galerie » vous pouvez parcourir tranquillement les plus belles images.

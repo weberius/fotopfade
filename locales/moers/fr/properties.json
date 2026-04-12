@@ -22,5 +22,6 @@
   "de": "deutsch",
   "fr": "français",
   "unterstuetzung": "Soutien",
+  "hilfeTitle": "Guide d'utilisation",
   "languages": ["de", "en", "fr"]
 }

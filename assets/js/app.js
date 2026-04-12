@@ -58,6 +58,82 @@ document.getElementById("start-tour-btn").addEventListener("click", function() {
   bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
 });
 
+// Audio beim Schliessen des POI-Modals stoppen und Icon zurücksetzen
+document.getElementById("featureModal").addEventListener("hidden.bs.modal", function() {
+  var audio = document.getElementById("feature-audio");
+  audio.pause();
+  audio.currentTime = 0;
+  document.getElementById("feature-play-btn").classList.remove("is-playing");
+});
+
+// Audio beim Schliessen des Start-Modals stoppen
+document.getElementById("startModal").addEventListener("hidden.bs.modal", function() {
+  var audio = document.getElementById("start-audio");
+  audio.pause();
+  audio.currentTime = 0;
+  document.getElementById("start-play-btn").classList.remove("is-playing");
+});
+
+// Audio beim Schliessen des Geschichte-Modals stoppen
+document.getElementById("geschichteModalDiv").addEventListener("hidden.bs.modal", function() {
+  var audio = document.getElementById("geschichte-audio");
+  audio.pause();
+  audio.currentTime = 0;
+  document.getElementById("geschichte-play-btn").classList.remove("is-playing");
+});
+
+// Play/Pause-Toggle für den POI-Audio-Button.
+// Das Icon (Play-Dreieck vs. Pause-Balken) wird ausschließlich über
+// die CSS-Klasse .is-playing gesteuert (→ app.css).
+document.getElementById("feature-play-btn").addEventListener("click", function() {
+  var audio = document.getElementById("feature-audio");
+  var btn   = document.getElementById("feature-play-btn");
+  if (audio.paused) {
+    audio.play();
+    btn.classList.add("is-playing");
+  } else {
+    audio.pause();
+    btn.classList.remove("is-playing");
+  }
+});
+
+// Play/Pause-Toggle für den Start-Audio-Button
+document.getElementById("start-play-btn").addEventListener("click", function() {
+  var audio = document.getElementById("start-audio");
+  var btn   = document.getElementById("start-play-btn");
+  if (audio.paused) {
+    audio.play();
+    btn.classList.add("is-playing");
+  } else {
+    audio.pause();
+    btn.classList.remove("is-playing");
+  }
+});
+
+// Play/Pause-Toggle für den Geschichte-Audio-Button
+document.getElementById("geschichte-play-btn").addEventListener("click", function() {
+  var audio = document.getElementById("geschichte-audio");
+  var btn   = document.getElementById("geschichte-play-btn");
+  if (audio.paused) {
+    audio.play();
+    btn.classList.add("is-playing");
+  } else {
+    audio.pause();
+    btn.classList.remove("is-playing");
+  }
+});
+
+// Icon zurücksetzen, wenn Audio natürlich endet
+document.getElementById("feature-audio").addEventListener("ended", function() {
+  document.getElementById("feature-play-btn").classList.remove("is-playing");
+});
+document.getElementById("start-audio").addEventListener("ended", function() {
+  document.getElementById("start-play-btn").classList.remove("is-playing");
+});
+document.getElementById("geschichte-audio").addEventListener("ended", function() {
+  document.getElementById("geschichte-play-btn").classList.remove("is-playing");
+});
+
 /**************************************************************************************************/
 // FILL TABLE
 /**************************************************************************************************/
@@ -192,6 +268,91 @@ fetch(urlroute, {
   });
 
 
+/**************************************************************************************************/
+// POI MARKDOWN PARSER
+/**************************************************************************************************/
+
+/**
+ * Zerlegt das Markdown einer POI-Datei in Bild-URL, Teaser-Text und KI-Hinweis.
+ * Das Markdown soll formatierungsarm sein (kein HTML, keine Inline-Styles).
+ *
+ * Erwartet werden:
+ *   - Erste Zeile: ![alt](./images/pfad/pN.jpg)
+ *   - Fließtext-Absätze (werden auf targetWords gekürzt)
+ *   - Letzter kursiver Absatz: _Die Inhalte..._  (KI-Hinweis)
+ *   - Weitere Abschnitte (## Quellen) werden ignoriert
+ *
+ * @param {string} md          - Markdown-Inhalt der POI-Datei
+ * @param {number} targetWords - Ziel-Wortanzahl für den Teaser (Standard: 70)
+ * @returns {{ imageSrc: string, teaser: string, kiHint: string }}
+ */
+function parsePoiMarkdown(md, targetWords) {
+  targetWords = targetWords || 70;
+
+  // 1. Bild-URL aus erstem ![alt](src)
+  // Pfade der Form ./images/... werden zu images/... normalisiert.
+  // Pfade ohne ./-Präfix bleiben unverändert — beides ist korrekt.
+  var imageMatch = md.match(/!\[.*?\]\((.*?)\)/);
+  var imageSrc = imageMatch ? imageMatch[1].replace(/^\.\//,  '') : '';
+
+  // 2. KI-Hinweis: letzter mit _ ... _ markierter Absatz
+  var kiMatch = md.match(/_([^_]+)_\s*$/);
+  var kiHint = kiMatch ? kiMatch[1].trim() : '';
+
+  // 3. Teaser: Alle nicht-Fließtext-Elemente entfernen
+  var cleaned = md
+    .replace(/!\[.*?\]\(.*?\)/g, '')           // Bilder entfernen
+    .replace(/^#+\s.*$/gm, '')                  // Überschriften entfernen
+    .replace(/<[^>]+>[\s\S]*?<\/[^>]+>/gm, '') // HTML-Blöcke entfernen
+    .replace(/<[^>]+>/g, '')                    // einzelne HTML-Tags entfernen
+    .replace(/^_.*_$/gm, '')                    // kursive Zeilen (KI-Hinweis) entfernen
+    .replace(/^[-*]\s.*$/gm, '')               // Listeneinträge entfernen
+    .replace(/\r?\n/g, ' ')                    // Zeilenumbrüche in Leerzeichen
+    .replace(/\s{2,}/g, ' ')                   // Mehrfach-Leerzeichen normalisieren
+    .trim();
+
+  // 4. Auf Ziel-Wortanzahl kürzen
+  var words = cleaned.split(' ').filter(function(w) { return w.length > 0; });
+  var teaser = words.slice(0, targetWords).join(' ');
+  if (words.length > targetWords) {
+    teaser += ' \u2026'; // …
+  }
+
+  return { imageSrc: imageSrc, teaser: teaser, kiHint: kiHint };
+}
+
+/**
+ * Lädt eine Markdown-Datei, parst sie mit parsePoiMarkdown() und befüllt
+ * die DOM-Elemente eines POI-artig gestalteten Modals.
+ * Wird von updateContent() in locale.js aufgerufen.
+ * @param {string} idPrefix  - Präfix der DOM-IDs (z.B. 'start', 'geschichte')
+ * @param {string} fileName  - Dateiname ohne .md (z.B. 'startModalBody')
+ * @param {string} audioFile - Audio-Dateiname (z.B. 'start.mp3')
+ */
+function loadPoiStyleModal(idPrefix, fileName, audioFile) {
+  var mdUrl    = 'locales/' + namespace + '/' + languageCode + '/' + fileName + '.md';
+  var audioUrl = 'locales/' + namespace + '/' + languageCode + '/' + audioFile;
+  fetch(mdUrl)
+    .then(function(response) {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.text();
+    })
+    .then(function(mdText) {
+      var parsed = parsePoiMarkdown(mdText);
+      document.getElementById(idPrefix + '-image').src           = parsed.imageSrc;
+      document.getElementById(idPrefix + '-image').alt           = '';
+      document.getElementById(idPrefix + '-text').textContent    = parsed.teaser;
+      document.getElementById(idPrefix + '-ki-hint').textContent = parsed.kiHint;
+      var audio = document.getElementById(idPrefix + '-audio');
+      audio.src = audioUrl;
+      audio.load();
+      document.getElementById(idPrefix + '-play-btn').classList.remove('is-playing');
+    })
+    .catch(function(error) {
+      console.error('Fehler beim Laden von ' + mdUrl + ':', error);
+    });
+}
+
 /* Single marker cluster layer to hold all clusters */
 var markerClusters = new L.MarkerClusterGroup({
   spiderfyOnMaxZoom: true,
@@ -228,27 +389,48 @@ var pois = L.geoJson(null, {
   onEachFeature: function (feature, layer) {
     if (feature.properties) {
 
-      var content = "";
-      var url = 'locales/' + namespace + '/' + languageCode + '/p' + feature.properties.id + '.md';
+      var poiMd = "";
+      var mdUrl = 'locales/' + namespace + '/' + languageCode + '/p' + feature.properties.id + '.md';
 
-     fetch(url).then(response => {
-         if (!response.ok) {
-             throw new Error('Network response was not ok');
-         }
-         return response.text(); // Die Antwort als Text abrufen
-     }).then(mdFragment => {
-        content = marked.parse(mdFragment);
-     }).catch(error => {
-         console.error('Beim Abrufen des MD-Fragments ist ein Fehler aufgetreten:', error);
-     });
+      fetch(mdUrl).then(function(response) {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      }).then(function(mdFragment) {
+        poiMd = mdFragment;
+      }).catch(function(error) {
+        console.error('Beim Abrufen des MD-Fragments ist ein Fehler aufgetreten:', error);
+      });
 
       layer.on({
         click: function (e) {
-          const featureTitle = feature.properties.name;
-          document.getElementById("feature-title").innerHTML = featureTitle;
-          document.getElementById("feature-info").innerHTML = content;
+          // Bekannte Einschränkung: Falls der fetch() noch nicht abgeschlossen ist
+          // (z.B. bei sehr langsamem Netz und sofortigem Klick), ist poiMd leer.
+          // Das Modal wird dann mit leeren Feldern angezeigt. Dieses Race-Condition-
+          // Verhalten entspricht dem bisherigen Stand und wird in dieser Story
+          // nicht gelöst.
+          var parsed   = parsePoiMarkdown(poiMd);
+          var audioUrl = 'locales/' + namespace + '/' + languageCode + '/p' + feature.properties.id + '.mp3';
+
+          document.getElementById("feature-title").textContent   = feature.properties.name;
+          document.getElementById("feature-image").src           = parsed.imageSrc;
+          document.getElementById("feature-image").alt           = feature.properties.name;
+          document.getElementById("feature-text").textContent    = parsed.teaser;
+          document.getElementById("feature-ki-hint").textContent = parsed.kiHint;
+
+          var audio = document.getElementById("feature-audio");
+          audio.src = audioUrl;
+          audio.load();
+          document.getElementById("feature-play-btn").classList.remove("is-playing");
+
           bootstrap.Modal.getOrCreateInstance(document.getElementById("featureModal")).show();
-          highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
+          highlight.clearLayers().addLayer(
+            L.circleMarker(
+              [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
+              highlightStyle
+            )
+          );
         }
       });
       var tooltipOptions = {

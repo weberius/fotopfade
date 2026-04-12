@@ -7,14 +7,6 @@ Ihr Spaziergang führt auf knapp zwei Kilometern durch die historische Altstadt 
 Der Weg verlässt am Hochzeitspförtchen kurz die Altstadt, führt jedoch über den Parkplatz zurück und bietet anschließend die Möglichkeit, das Rathaus sowie das ehemalige landgräfliche Burglehen zu erreichen.
 
 Zurück in der Altstadt erwarten Sie weitere Zeugnisse der Geschichte: die ehemalige Synagoge, das Haus des Schuldheißen, der Pulverturm mit erhaltenem Wehrgang und das gotische Haus. Der Rundgang endet stimmungsvoll am Gasthaus zur Krone unter den historischen Schirnen – einem überdachten Handelsplatz, der bis heute zum Verweilen einlädt.
-
-## Audio: Was macht Homberg aus?
-
-<audio controls class="full-width-audio">
-  <source src="locales/homberg/de/homberg-efze.mp3" type="audio/mpeg">
-  Dein Browser unterstützt kein Audioelement.
-</audio>
-
 ## Quellen
 
 - Stadt Homberg (Efze)

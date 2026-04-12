@@ -55,6 +55,8 @@ POI-Beschreibungen (`.md`) werden bereits beim Aufbau des POI-Layers per `onEach
 
 **Ausnahme ab User-Story-023:** Für POI-Dateien (`p<id>.md`) gilt der oben beschriebene `marked.parse()` + `innerHTML`-Weg **nicht mehr**. Die Dateien werden zwar weiterhin per `fetch` geladen, aber durch die Funktion `parsePoiMarkdown()` (in `app.js`) strukturiert in ihre Bestandteile (Bild-URL, Teaser-Text, KI-Hinweis) zerlegt. Die Bestandteile werden per `textContent` in dedizierte DOM-Elemente des `#featureModal` geschrieben. Das Format der POI-Dateien ist als Content-Contract in ADR-014 festgelegt.
 
+**Ausnahme ab User-Story-023 (erweitert):** Dasselbe Verfahren gilt auch für die Modals **Start** (`startModalBody.md`) und **Geschichte** (`expectModalLi.md`). Diese werden über die Funktion `loadPoiStyleModal()` (in `app.js`) geladen, die intern ebenfalls `parsePoiMarkdown()` nutzt. Auch ihr Format folgt dem Content-Contract in ADR-014.
+
 ## Alternativen
 
 | Alternative | Bewertung |

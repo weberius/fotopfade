@@ -15,12 +15,6 @@ Heute ist Korbach ein wichtiges wirtschaftliches und kulturelles Zentrum mit ein
 Die Stadt blickt aktiv in die Zukunft, indem sie seit 2022 eine **umfassende Nachhaltigkeitsstrategie** verfolgt, die unter anderem die Digitalisierung und Mehrsprachigkeit der Verwaltung bis 2028 umfasst und bis 2030 ein klimafreundliches ÖPNV-Angebot anstrebt.
 
 ## Was kann ich in Korbach entdecken?
-
-<audio controls class="full-width-audio">
-  <source src="locales/korbach/de/expect.mp3" type="audio/mpeg">
-  Dein Browser unterstützt kein Audioelement.
-</audio>
-
 ## Quellen
 
 - Goldspur Korbach - Altststadtrundgang

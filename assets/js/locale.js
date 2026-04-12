@@ -72,9 +72,9 @@ function updateContent() {
     new ModalBuilder().loadMarkdown('featuresModalLi', i18next.language);
     new ModalBuilder().build('routModalBody', i18next.language);
     new ModalBuilder().loadMarkdown('linksModalLi', i18next.language);
-    new ModalBuilder().loadMarkdown('expectModalLi', i18next.language);
+    loadPoiStyleModal('geschichte', 'expectModalLi', 'geschichte.mp3');
     new ModalBuilder().loadMarkdown('aboutModalLi', i18next.language);
-    new ModalBuilder().loadMarkdown('startModalBody', i18next.language);
+    loadPoiStyleModal('start', 'startModalBody', 'start.mp3');
     new ModalBuilder().loadMarkdown('hilfeModalLi', i18next.language);
     new ModalBuilder().build('leaflet-control-attribution', i18next.language);
 

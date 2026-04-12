@@ -1,4 +1,4 @@
-# ADR-014: Content-Contract für POI-Markdown-Dateien (`p<id>.md`)
+# ADR-014: Content-Contract für Audio-First Markdown-Dateien
 
 **Datum:** 2026-04  
 **Status:** Akzeptiert  
@@ -8,8 +8,16 @@
 
 ## Kontext
 
-POI-Beschreibungen werden als Markdown-Dateien im Verzeichnis
-`locales/<namespace>/<lang>/p<id>.md` abgelegt. Diese Dateien werden:
+Dieser Contract gilt für alle Markdown-Dateien, die durch `parsePoiMarkdown()`
+(in `assets/js/app.js`) geparst und in Audio-First Modals dargestellt werden:
+
+| Dateiname | Verzeichnis | Modal | Ladefunktion |
+|---|---|---|---|
+| `p<id>.md` | `locales/<namespace>/<lang>/` | `#featureModal` (POI) | `onEachFeature` in Leaflet-Callback |
+| `startModalBody.md` | `locales/<namespace>/<lang>/` | `#startModal` (Routen-Start) | `loadPoiStyleModal('start', ...)` |
+| `expectModalLi.md` | `locales/<namespace>/<lang>/` | `#geschichteModalDiv` (Geschichte) | `loadPoiStyleModal('geschichte', ...)` |
+
+Alle drei Dateitypen werden:
 
 - **extern generiert** (durch KI-Werkzeuge oder Redakteure, nicht durch die App),
 - **perspektivisch mehrsprachig** gepflegt (für jede Sprache eine eigene Datei),
@@ -24,7 +32,7 @@ Dokumentation entstehen stille Fehler bei der Generierung neuer Dateien.
 
 ## Entscheidung
 
-Eine `p<id>.md`-Datei **muss** folgendem Aufbau entsprechen:
+Alle drei Dateiarten **müssen** folgendem Aufbau entsprechen:
 
 ### Pflichtbestandteile (in dieser Reihenfolge)
 
@@ -76,20 +84,23 @@ ausgeschlossen werden._
 | Überschriften | Zulässig für optionale Abschnitte (`## Quellen`), nicht im Fließtext |
 | Listen | Nur in `## Quellen`-Abschnitt |
 | HTML | Kein eingebettetes HTML (außer entfernten `<audio>`-Blöcken, die durch TASK-004 bereinigt werden) |
-| Audio | Kein `<audio>`-Element in der Datei — Audio-URL wird von der App per Konvention abgeleitet: `p<id>.mp3` im selben Verzeichnis |
+| Audio | Kein `<audio>`-Element in der Datei — Audio-URL wird von der App als Parameter übergeben (z.B. `p<id>.mp3`, `start.mp3`, `geschichte.mp3`) |
 
 ---
 
-## Abgeleitete Audio-URL
+## Audio-URL
 
-Die App leitet die Audio-URL direkt aus der Markdown-Datei ab:
+Die Audio-URL wird **nicht** aus der Markdown-Datei gelesen, sondern als Parameter
+an `loadPoiStyleModal()` übergeben:
 
-```
-locales/<namespace>/<lang>/p<id>.mp3
-```
+| Datei | Audio-Parameter | Erwarteter Pfad |
+|---|---|---|
+| `p<id>.md` | `p<id>.mp3` (abgeleitet im Leaflet-Callback) | `locales/<namespace>/<lang>/p<id>.mp3` |
+| `startModalBody.md` | `start.mp3` | `locales/<namespace>/<lang>/start.mp3` |
+| `expectModalLi.md` | `geschichte.mp3` | `locales/<namespace>/<lang>/geschichte.mp3` |
 
-Es gibt kein explizites Audio-Referenz-Feld in der Datei. Die mp3-Datei muss
-im selben Verzeichnis wie die md-Datei liegen und den gleichen Basis-Namen tragen.
+Es gibt kein explizites Audio-Referenz-Feld in den Markdown-Dateien. Die mp3-Datei
+muss im selben Verzeichnis wie die md-Datei liegen.
 
 ---
 
@@ -126,6 +137,6 @@ im selben Verzeichnis wie die md-Datei liegen und den gleichen Basis-Namen trage
 
 **Negativ:**
 - Bestehende Abweichungen vom Format (z.B. alte `<audio>`-Blöcke) müssen
-  bereinigt werden (→ TASK-004)
+  bereinigt werden (→ TASK-004 für `p<id>.md`; Folgebereinigung für `startModalBody.md` und `expectModalLi.md`)
 - Fehler im Format sind still (kein Validierungsschritt in der App)
 - Kein Fallback, wenn die mp3-Datei fehlt (Browser-Fehler beim Laden)

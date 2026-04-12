@@ -54,11 +54,17 @@ Die `ModalBuilder`-Methoden werden in der Funktion `updateContent()` (in `assets
 
 Das bedeutet: **Alle Fragmente werden bei der ersten Initialisierung (und bei Sprachwechsel) asynchron und parallel angefragt**, nicht erst beim Öffnen des jeweiligen Modals.
 
-### Ausnahme: POI-Beschreibungen
+### Ausnahme: Audio-First Markdown-Dateien
 
-POI-spezifische Markdown-Dateien (`p<id>.md`) werden **nicht über `ModalBuilder`** geladen, sondern direkt im `onEachFeature`-Callback von Leaflet (in `assets/js/app.js`), wenn der POI-Layer aufgebaut wird. Das rohe Markdown wird in der Closure-Variable `poiMd` vorgehalten.
+Folgende Markdown-Dateien werden **nicht über `ModalBuilder`** geladen:
 
-Beim Klick auf einen Marker wird `parsePoiMarkdown(poiMd)` aufgerufen, das die Datei in ihre Bestandteile (Bild-URL, Teaser-Text, KI-Hinweis) zerlegt. Diese werden per `textContent` in die fest definierten DOM-Elemente des `#featureModal` geschrieben — **kein `marked.parse()`**, **kein `innerHTML`** für POI-Inhalte. Das Format der `p<id>.md`-Dateien ist als Content-Contract in ADR-014 festgelegt.
+| Datei | Modal | Ladefunktion |
+|---|---|---|
+| `p<id>.md` | `#featureModal` (POI) | direkt in `onEachFeature` (Leaflet); Closure-Variable `poiMd` |
+| `startModalBody.md` | `#startModal` | `loadPoiStyleModal('start', ...)` in `locale.js` |
+| `expectModalLi.md` | `#geschichteModalDiv` | `loadPoiStyleModal('geschichte', ...)` in `locale.js` |
+
+Alle drei Dateitypen werden durch `parsePoiMarkdown()` strukturiert geparst (Bild-URL, Teaser-Text, KI-Hinweis) und per `textContent` in fest definierte DOM-Elemente geschrieben — **kein `marked.parse()`**, **kein `innerHTML`**. Das Format dieser Dateien ist als Content-Contract in ADR-014 festgelegt.
 
 ### HTML-Fragmente vs. Markdown-Fragmente
 
@@ -68,7 +74,7 @@ Beim Klick auf einen Marker wird `parsePoiMarkdown(poiMd)` aufgerufen, das die D
 | Inhalt | Strukturelles HTML (Tabellen, Tab-Elemente) | Fließtext mit Formatierung, Bildern, Audio |
 | Lademethode | `ModalBuilder.build()` | `ModalBuilder.loadMarkdown()` |
 | Konvertierung | keine (direktes innerHTML) | marked.js → HTML |
-| Beispiele | `routModalBody.html`, `leaflet-control-attribution.html` | `startModalBody.md`, `impressumModalLi.md` (nicht `p<id>.md` — siehe ADR-014) |
+| Beispiele | `routModalBody.html`, `leaflet-control-attribution.html` | `impressumModalLi.md`, `aboutModalLi.md` (nicht `p<id>.md`, `startModalBody.md`, `expectModalLi.md` — siehe ADR-014) |
 
 ## Alternativen
 

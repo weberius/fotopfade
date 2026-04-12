@@ -39,8 +39,22 @@
         <h4 class="modal-title" id="startModalTitle">Start</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schliessen"></button>
       </div>
-      <div class="modal-body" id="startModalBody">
-        <!-- will be set by class RouteModal -->
+      <div class="modal-body p-0">
+        <div class="poi-image-box">
+          <img id="start-image" src="" alt="" />
+        </div>
+        <div class="poi-content-area px-3 pt-2 pb-3">
+          <button id="start-play-btn" class="poi-play-btn" aria-label="Audio abspielen">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon id="start-play-icon" points="6,4 20,12 6,20"/>
+              <rect id="start-pause-bar-1" class="pause-bar" x="5" y="4" width="4" height="16"/>
+              <rect id="start-pause-bar-2" class="pause-bar" x="15" y="4" width="4" height="16"/>
+            </svg>
+          </button>
+          <p id="start-text"></p>
+          <p class="poi-ki-hint" id="start-ki-hint"></p>
+        </div>
+        <audio id="start-audio" preload="none"></audio>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="start-tour-btn">
@@ -89,16 +103,28 @@
 
 <!-- Geschichte -->
 <div class="modal fade" id="geschichteModalDiv" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"><span id="geschichteModalTitle">Geschichte</span></h4>
         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Schliessen"></button>
       </div>
-      <div class="modal-body">
-        <div class="card" id="expectModalLi">
-          <!-- will be set after loading -->
+      <div class="modal-body p-0">
+        <div class="poi-image-box">
+          <img id="geschichte-image" src="" alt="" />
         </div>
+        <div class="poi-content-area px-3 pt-2 pb-3">
+          <button id="geschichte-play-btn" class="poi-play-btn" aria-label="Audio abspielen">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon id="geschichte-play-icon" points="6,4 20,12 6,20"/>
+              <rect id="geschichte-pause-bar-1" class="pause-bar" x="5" y="4" width="4" height="16"/>
+              <rect id="geschichte-pause-bar-2" class="pause-bar" x="15" y="4" width="4" height="16"/>
+            </svg>
+          </button>
+          <p id="geschichte-text"></p>
+          <p class="poi-ki-hint" id="geschichte-ki-hint"></p>
+        </div>
+        <audio id="geschichte-audio" preload="none"></audio>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span id="closeBtnGeschichteModal">Schliessen</span></button>
@@ -231,9 +257,29 @@
         <h4 class="modal-title" id="feature-title"></h4>
         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Schliessen"></button>
       </div>
-      <div class="modal-body" id="feature-info"></div>
+      <div class="modal-body p-0">
+        <div class="poi-image-box">
+          <img id="feature-image" src="" alt="" />
+        </div>
+        <div class="poi-content-area px-3 pt-2 pb-3">
+          <button id="feature-play-btn" class="poi-play-btn" aria-label="Audio abspielen">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Play-Dreieck (Standard-Zustand) -->
+              <polygon id="feature-play-icon" points="6,4 20,12 6,20"/>
+              <!-- Pause-Balken (via CSS-Klasse .is-playing eingeblendet) -->
+              <rect id="feature-pause-bar-1" class="pause-bar" x="5" y="4" width="4" height="16"/>
+              <rect id="feature-pause-bar-2" class="pause-bar" x="15" y="4" width="4" height="16"/>
+            </svg>
+          </button>
+          <p id="feature-text"></p>
+          <p class="poi-ki-hint" id="feature-ki-hint"></p>
+        </div>
+        <audio id="feature-audio" preload="none"></audio>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span id="closeBtnFeatureModel">Schliessen</span></button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <span id="closeBtnFeatureModel">Schliessen</span>
+        </button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

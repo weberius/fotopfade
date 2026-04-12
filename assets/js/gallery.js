@@ -1,7 +1,7 @@
 let galleryItems = [];
 let galleryLightbox;
 
-fetch("service/gallery/" + getURLParameter("id") +  ".json")
+fetch("service/gallery/" + namespace + ".json")
   .then(response => response.json())
   .then(data => {
     galleryItems = data.map(item => ({
@@ -11,7 +11,6 @@ fetch("service/gallery/" + getURLParameter("id") +  ".json")
       description: 'Copyright © Wolfram Eberius',
     }));
 
-    // Initialisiere die Lightbox einmal
     galleryLightbox = GLightbox({
       elements: galleryItems,
       touchNavigation: true,
@@ -22,14 +21,6 @@ fetch("service/gallery/" + getURLParameter("id") +  ".json")
 document.getElementById("gallery-btn").addEventListener("click", function (e) {
   e.preventDefault();
   if (galleryLightbox) {
-    galleryLightbox.open(); // Öffnen ist jetzt synchron!
-  }
-});
-
-// Bilder aus Konfigurationsdatei laden
-document.getElementById("gallery-btn").addEventListener("click", function (e) {
-  e.preventDefault();
-  if (galleryLightbox) {
-    galleryLightbox.open(); // Öffnen ist jetzt synchron!
+    galleryLightbox.open();
   }
 });

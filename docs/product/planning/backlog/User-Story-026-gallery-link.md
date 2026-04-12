@@ -1,0 +1,5 @@
+Es gibt den Menüpunkt 'Galerie' der die Bilder zu den Points-Of-Interest in einer Galery aufruft. Die Bilder sind jeweils in images/<namespace>/hinterlegt. Außerdem werden die Bilder in den modalen Dialogen eingebunden. Es gibt keine Verbindung zwischen diesen beiden Anzeigemöglichkeiten.
+Analysiere die Möglichkeit, dass mit Klick auf das Bild in einem modalen Dialog zu einem POI in die Galerie gewechselt werden kann. Dabei soll das entsprechende Bild angezeigt werden. 
+Auf der anderen Seite soll es möglich sein auf ein Bild in der Galerie zu klicken. Dadurch wird der modale Dialog, in dem das Bild eingebunden wird geöffnet. 
+Die modalen Dialoge sind z.B. durch den Dateinamen p1.md erkennbar. Die Bilder an p1.jpg. Achte darauf, dass die eingestellte Sprache berücksichtigt bleibt. 
+Setze noch nichts um. Analysiere zunächst mit dem Ziel eine User-Story-027-gallery-link zuerstellen.

@@ -1,5 +1,3 @@
-## Datenschutzerklärung
-
 ## 1. Datenschutz auf einen Blick
 
 Die Betreiber dieser App nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO) sowie dieser Datenschutzerklärung.

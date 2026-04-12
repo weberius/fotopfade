@@ -83,6 +83,18 @@ function updateContent() {
     new ModalBuilder().loadMarkdown('fDisclaimerLi', i18next.language, 'disclaimerModalLi');
     new ModalBuilder().loadMarkdown('fDatenschutzLi', i18next.language, 'datenschutzLi');
     new ModalBuilder().loadMarkdown('fCoffeeLi', i18next.language, 'bymecoffeeModalLi');
+    // Footer-Labels und Modal-Titles aus properties.json
+    document.getElementById('footer-impressum-label').textContent = i18next.t('impressum');
+    document.getElementById('footer-disclaimer-label').textContent = i18next.t('disclaimer');
+    document.getElementById('footer-datenschutz-label').textContent = i18next.t('datenschutz');
+    document.getElementById('fImpressumTitle').textContent = i18next.t('impressum');
+    document.getElementById('fDisclaimerTitle').textContent = i18next.t('disclaimer');
+    document.getElementById('fDatenschutzTitle').textContent = i18next.t('datenschutz');
+    document.getElementById('fCoffeeTitleLabel').textContent = i18next.t('unterstuetzung');
+    document.getElementById('closeBtnImpressumModal').textContent = i18next.t('closeBtn');
+    document.getElementById('closeBtnDisclaimerModal').textContent = i18next.t('closeBtn');
+    document.getElementById('closeBtnDatenschutzModal').textContent = i18next.t('closeBtn');
+    document.getElementById('closeBtnCoffeeModal').textContent = i18next.t('closeBtn');
 }
 
 

@@ -56,7 +56,9 @@ Das bedeutet: **Alle Fragmente werden bei der ersten Initialisierung (und bei Sp
 
 ### Ausnahme: POI-Beschreibungen
 
-POI-spezifische Markdown-Dateien (`p<id>.md`) werden **nicht über `ModalBuilder`** geladen, sondern direkt im `onEachFeature`-Callback von Leaflet (in `assets/js/app.js`), wenn der POI-Layer aufgebaut wird. Das Ergebnis wird in einer Closure-Variablen `content` für den späteren Click-Handler vorgehalten.
+POI-spezifische Markdown-Dateien (`p<id>.md`) werden **nicht über `ModalBuilder`** geladen, sondern direkt im `onEachFeature`-Callback von Leaflet (in `assets/js/app.js`), wenn der POI-Layer aufgebaut wird. Das rohe Markdown wird in der Closure-Variable `poiMd` vorgehalten.
+
+Beim Klick auf einen Marker wird `parsePoiMarkdown(poiMd)` aufgerufen, das die Datei in ihre Bestandteile (Bild-URL, Teaser-Text, KI-Hinweis) zerlegt. Diese werden per `textContent` in die fest definierten DOM-Elemente des `#featureModal` geschrieben — **kein `marked.parse()`**, **kein `innerHTML`** für POI-Inhalte. Das Format der `p<id>.md`-Dateien ist als Content-Contract in ADR-014 festgelegt.
 
 ### HTML-Fragmente vs. Markdown-Fragmente
 
@@ -66,7 +68,7 @@ POI-spezifische Markdown-Dateien (`p<id>.md`) werden **nicht über `ModalBuilder
 | Inhalt | Strukturelles HTML (Tabellen, Tab-Elemente) | Fließtext mit Formatierung, Bildern, Audio |
 | Lademethode | `ModalBuilder.build()` | `ModalBuilder.loadMarkdown()` |
 | Konvertierung | keine (direktes innerHTML) | marked.js → HTML |
-| Beispiele | `routModalBody.html`, `leaflet-control-attribution.html` | `startModalBody.md`, `p1.md`, `impressumModalLi.md` |
+| Beispiele | `routModalBody.html`, `leaflet-control-attribution.html` | `startModalBody.md`, `impressumModalLi.md` (nicht `p<id>.md` — siehe ADR-014) |
 
 ## Alternativen
 

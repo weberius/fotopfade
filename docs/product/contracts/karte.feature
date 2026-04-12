@@ -46,3 +46,8 @@ Feature: Interaktive Kartenansicht
     Given ein POI ist hervorgehoben
     When der Nutzer auf eine leere Kartenfläche klickt
     Then wird die Hervorhebung des POI entfernt
+
+  Szenario: Hilfe-Control ist auf der Karte sichtbar
+    When die App vollständig geladen ist
+    Then ist ein ?-Button (HelpControl) rechts unten auf der Karte sichtbar
+    And der ?-Button erscheint oberhalb der Zoom- und GPS-Controls

@@ -19,10 +19,10 @@ Feature: Modale Dialoge
     Then öffnet sich das Startmodal (#startModal) automatisch
     And der Inhalt des Modals zeigt die aus "locales/koeln-muelheim/de/startModalBody.md" geladene Beschreibung
 
-  Szenario: Startmodal schließt sich automatisch nach 30 Sekunden
+  Szenario: Startmodal schließt sich nicht automatisch
     Given das Startmodal ist geöffnet
-    When 30 Sekunden vergangen sind
-    Then schließt sich das Startmodal automatisch
+    When 60 Sekunden vergangen sind
+    Then ist das Startmodal weiterhin sichtbar
 
   Szenario: Startmodal wird erneut geöffnet durch Klick auf "Start" im Menü
     Given die App ist geladen
@@ -115,3 +115,21 @@ Feature: Modale Dialoge
     Given das Attributions-Modal ist geöffnet
     Then zeigt die Modal-Überschrift den Wert von "attributionTitle" aus properties.json
     And der Titel lautet standardmäßig "Attribution"
+
+  # --- Hilfe-Dialog ---
+
+  Szenario: Hilfe-Dialog öffnet sich durch Klick auf den ?-Button auf der Karte
+    Given die App ist geladen
+    When der Nutzer auf den ?-Button (HelpControl) auf der Karte klickt
+    Then öffnet sich der Hilfe-Dialog (#hilfeModalDiv)
+    And die Überschrift zeigt den Wert von "hilfeTitle" aus properties.json
+
+  Szenario: Hilfe-Dialog zeigt die Bedienungshinweise
+    Given der Hilfe-Dialog (#hilfeModalDiv) ist geöffnet
+    Then enthält der Dialog-Body den aus "locales/koeln-muelheim/de/hilfeModalLi.md" geladenen Inhalt
+
+  Szenario: Hilfe-Dialog schließt sich nur durch explizite Nutzeraktion
+    Given der Hilfe-Dialog (#hilfeModalDiv) ist geöffnet
+    When der Nutzer auf "Schliessen" klickt
+    Then schließt sich der Hilfe-Dialog
+    And das Schliessen findet ausschließlich durch Nutzeraktion statt (kein Auto-Close)

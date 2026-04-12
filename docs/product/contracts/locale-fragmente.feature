@@ -75,6 +75,12 @@ Feature: Laden von Locale-Fragmenten aus dem locales-Verzeichnis
     And das betreffende DOM-Element bleibt leer (kein Inhalt wird gesetzt)
     And ein Fehler wird in der Browser-Konsole protokolliert
 
+  Szenario: Markdown-Fragment für den Hilfe-Dialog wird geladen
+    When die Methode ModalBuilder.loadMarkdown("hilfeModalLi", "de") aufgerufen wird
+    Then wird eine HTTP GET-Anfrage an "locales/koeln-muelheim/de/hilfeModalLi.md" gesendet
+    And das Markdown wird mit marked.js in HTML konvertiert
+    And der HTML-Inhalt wird in das DOM-Element mit der ID "hilfeModalLi" injiziert
+
   Szenario: POI-Beschreibung wird bedarfsweise pro POI aus dem locales-Verzeichnis geladen
     Given der POI-Layer enthält einen POI mit der Eigenschaft "id" = "5"
     When der POI-Layer initialisiert wird

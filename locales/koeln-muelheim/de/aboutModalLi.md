@@ -1,3 +1,5 @@
+# Über das Projekt
+
 Der Fotopfad durch Köln-Mülheim führt Sie zu den historisch und sozial bedeutendsten Orten des Stadtteils. Die Kombination aus Text, Bild und Ton ermöglicht vielfältige Einblicke in die wechselvolle Geschichte Mülheims. Die Tour beginnt am Bahnhof und endet am Wiener Platz, dem pulsierenden Herzen des Stadtteils.
 
 Die Route wurde in Anlehnung an die historischen Kulturpfade der Stadt Köln entwickelt. Von den ursprünglichen Markierungen existieren heute nur noch zwei Schilder im Straßenraum. Durch den tiefgreifenden Wandel des Stadtteils finden sich im heutigen Fotopfad lediglich Fragmente des ursprünglichen Kulturpfads.

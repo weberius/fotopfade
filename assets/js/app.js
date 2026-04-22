@@ -287,7 +287,7 @@ fetch(urlroute, {
  * @returns {{ imageSrc: string, teaser: string, kiHint: string }}
  */
 function parsePoiMarkdown(md, targetWords) {
-  targetWords = targetWords || 70;
+  targetWords = targetWords || 100;
 
   // 1. Bild-URL aus erstem ![alt](src)
   // Pfade der Form ./images/... werden zu images/... normalisiert.

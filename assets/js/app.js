@@ -1,5 +1,6 @@
 var map;
 let urlroute, urlpoi;
+let startModalUserTriggered = false;
 
 // Abwärtskompatibilität: ?id=name → #/name
 (function() {
@@ -26,12 +27,6 @@ document.getElementById("ueber-btn").addEventListener("click", function() {
   return false;
 });
 
-document.getElementById("features-btn").addEventListener("click", function() {
-  bootstrap.Modal.getOrCreateInstance(document.getElementById("featuresModalDiv")).show();
-  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
-  return false;
-});
-
 document.getElementById("links-btn").addEventListener("click", function() {
   bootstrap.Modal.getOrCreateInstance(document.getElementById("linksModalDiv")).show();
   bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
@@ -45,14 +40,31 @@ document.getElementById("resources-btn").addEventListener("click", function() {
 });
 
 document.getElementById("full-extent-btn").addEventListener("click", function() {
+  startModalUserTriggered = true;
   bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).show();
   map.fitBounds(routes.getBounds());
   bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
   return false;
 });
 
+document.getElementById("startModal").addEventListener("show.bs.modal", function() {
+  var tourBtn = document.getElementById("start-tour-btn");
+  var label = document.getElementById("startTourBtnLabel");
+  if (startModalUserTriggered) {
+    tourBtn.classList.remove("btn-primary");
+    tourBtn.classList.add("btn-secondary");
+    tourBtn.setAttribute("data-bs-dismiss", "modal");
+    label.textContent = i18next.t("closeBtn");
+  } else {
+    tourBtn.classList.remove("btn-secondary");
+    tourBtn.classList.add("btn-primary");
+    tourBtn.removeAttribute("data-bs-dismiss");
+    label.textContent = i18next.t("tourStarten");
+  }
+});
+
 document.getElementById("start-tour-btn").addEventListener("click", function() {
-  if (routes.getBounds().isValid()) {
+  if (!startModalUserTriggered && routes.getBounds().isValid()) {
     map.fitBounds(routes.getBounds());
   }
   bootstrap.Modal.getOrCreateInstance(document.getElementById("startModal")).hide();
@@ -72,6 +84,7 @@ document.getElementById("startModal").addEventListener("hidden.bs.modal", functi
   audio.pause();
   audio.currentTime = 0;
   document.getElementById("start-play-btn").classList.remove("is-playing");
+  startModalUserTriggered = false;
 });
 
 // Audio beim Schliessen des Geschichte-Modals stoppen

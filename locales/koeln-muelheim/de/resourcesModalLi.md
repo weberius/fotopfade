@@ -1,5 +1,3 @@
-# Quellen
-
 - Mathilde Kriebs, Eva Rusch und Helmut Goldau (Redaktion): 100 Jahre Köln-Mülheim. Köln 2014.
 - Helmut Goldau und Peter Bach: Die Geschichte des Kulturbunkers Mülheim. Köln 2017.
 - Eva-Maria Bruchhaus und Helmut Goldau (Redaktion): Die Keupstraße – Geschichte und Geschichten. Köln 2016.

@@ -1,6 +1,3 @@
-Features
-========
-
 * Der Überblick zeigt den Weg und die Anzahl der Sehenswürdigkeiten entlang einer Route. Der Verlauf des Weges entspricht bestmöglich der ursprünglichen Streckenführung des Kulturpfades.
 * Die Kartenansicht zeigt Details entlang des Pfades an. Die Sehenswürdigkeiten werden durch rote Marker mit ihren Nummern angezeigt.
 * Ein modaler Dialog zeigt Informationen zu den Sehenswürdigkeiten. Die Texte sind den Heften entnommen, die für die Kulturpfade veröffentlicht wurden. Ein Foto illustriert den Eintrag.

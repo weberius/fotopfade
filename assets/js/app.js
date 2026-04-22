@@ -21,12 +21,6 @@ document.getElementById("geschichte-btn").addEventListener("click", function() {
   return false;
 });
 
-document.getElementById("ueber-btn").addEventListener("click", function() {
-  bootstrap.Modal.getOrCreateInstance(document.getElementById("ueberModalDiv")).show();
-  bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();
-  return false;
-});
-
 document.getElementById("links-btn").addEventListener("click", function() {
   bootstrap.Modal.getOrCreateInstance(document.getElementById("linksModalDiv")).show();
   bootstrap.Collapse.getOrCreateInstance(document.querySelector(".navbar-collapse")).hide();

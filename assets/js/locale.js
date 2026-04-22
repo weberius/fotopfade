@@ -43,7 +43,6 @@ function updateContent() {
     document.getElementById('brand').innerHTML = i18next.t('brand');
     document.getElementById('routeModal').innerHTML = i18next.t('brand');
     document.getElementById('closeBtnGeschichteModal').innerHTML = i18next.t('closeBtn');
-    document.getElementById('closeBtnUeberModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('closeBtnLinksModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('closeBtnResourcesModal').innerHTML = i18next.t('closeBtn');
     document.getElementById('closeBtnFeatureModel').innerHTML = i18next.t('closeBtn');
@@ -53,13 +52,11 @@ function updateContent() {
     document.getElementById('zoomSelectorSpan').innerHTML = i18next.t('zoom');
     document.getElementById('routeSelectorSpan').innerHTML = i18next.t('route');
     document.getElementById('geschichteSelectorSpan').innerHTML = i18next.t('geschichte');
-    document.getElementById('ueberSelectorSpan').innerHTML = i18next.t('ueber');
     document.getElementById('linksSelectorSpan').innerHTML = i18next.t('links');
     document.getElementById('resourcesSelectorSpan').innerHTML = i18next.t('resources');
     document.getElementById('coffeeSelectorSpan').innerHTML = i18next.t('unterstuetzung');
     document.getElementById('startTourBtnLabel').innerHTML = i18next.t('tourStarten');
     document.getElementById('geschichteModalTitle').innerHTML = i18next.t('geschichteTitle');
-    document.getElementById('ueberModalTitle').innerHTML = i18next.t('ueberTitle');
     document.getElementById('linksModalTitle').innerHTML = i18next.t('linksTitle');
     document.getElementById('resourcesModalTitle').innerHTML = i18next.t('resourcesTitle');
     document.getElementById('attributionModalTitle').innerHTML = i18next.t('attributionTitle');
@@ -68,7 +65,6 @@ function updateContent() {
     new ModalBuilder().build('routModalBody', i18next.language);
     new ModalBuilder().loadMarkdown('linksModalLi', i18next.language);
     loadPoiStyleModal('geschichte', 'expectModalLi', 'geschichte.mp3');
-    new ModalBuilder().loadMarkdown('aboutModalLi', i18next.language);
     loadPoiStyleModal('start', 'startModalBody', 'start.mp3');
     new ModalBuilder().loadMarkdown('hilfeModalLi', i18next.language);
     new ModalBuilder().build('leaflet-control-attribution', i18next.language);

@@ -77,9 +77,14 @@ input[type="radio"], input[type="checkbox"] {
     width: 100%;
 }
 .card ul li {
+      font-size: 14px;
       list-style-type: none;
       margin-bottom: 5px;
       margin-left: -20px;
+}
+#hilfeModalLi a {
+    color: #6c757d;
+    text-decoration: underline;
 }
 .modal-body ul li {
       list-style-type: circle;

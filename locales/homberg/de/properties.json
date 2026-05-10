@@ -13,8 +13,9 @@
   "resources": "Quellen",
   "resourcesTitle": "Quellen",
   "attributionTitle": "Attribution",
+  "galleryModalTitle": "Galerie",
   "closeBtn": "Schliessen",
-  "zoom": "Zoom",
+  "zoom": "Start",
   "download": "Download",
   "language": "Sprache",
   "pois": "Sehenswürdigkeiten",
@@ -28,8 +29,8 @@
   "unterstuetzung": "Unterstützung",
   "tourStarten": "Tour starten",
   "hilfeTitle": "Bedienungshinweise",
-  "impressum": "Impressum",
-  "disclaimer": "Disclaimer",
+  "disclaimer": "Haftungsausschluss",
   "datenschutz": "Datenschutz",
+  "impressum": "Impressum",
   "languages": ["de"]
 }

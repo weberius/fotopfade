@@ -1,21 +1,6 @@
 ![Homber (Efze)](./images/homberg/start.jpg)
 
-Der Fotopfad durch Homberg (Efze) führt 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
-Lorem ipsum. 
+Der Fotopfad durch Homberg (Efze) befindet sich derzeit noch im Aufbau. Inhalte und Funktionen werden fortlaufend ergänzt, überarbeitet und geprüft. Daher kann es aktuell noch zu Fehlern, unvollständigen Informationen oder technischen Einschränkungen kommen.
 
 ## Was kann ich entdecken?
 

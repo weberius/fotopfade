@@ -1,0 +1,12 @@
+![Default](./images/homberg/default.jpg)
+
+Der Fotopfad befindet sich derzeit noch im Aufbau. Inhalte und Funktionen werden fortlaufend ergänzt, überarbeitet und geprüft. Daher kann es aktuell noch zu Fehlern, unvollständigen Informationen oder technischen Einschränkungen kommen.
+
+<audio controls class="full-width-audio">
+  <source src="locales/homberg/de/default.mp3" type="audio/mpeg">
+  Dein Browser unterstützt kein Audioelement.
+</audio>
+
+## Hinweis
+
+_Die Inhalte wurden unter Einsatz von KI-Werkzeugen erstellt und sorgfältig überprüft. Vereinzelt können Unstimmigkeiten nicht ausgeschlossen werden._

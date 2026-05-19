@@ -1,5 +1,3 @@
-# Attribution
-
 ## Tools und Frameworks
 
 * Anzeige ist optimiert für Desktop-Browser, Tablet und Smartphone durch Verwendung von [Bootleaf]. Bootleaf basiert auf [Bootstrap 3] und [Leaflet].

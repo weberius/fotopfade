@@ -1,6 +1,6 @@
 ![Homber (Efze)](./images/homberg/start.jpg)
 
-Der Fotopfad durch Homberg (Efze) befindet sich derzeit noch im Aufbau. Inhalte und Funktionen werden fortlaufend ergänzt, überarbeitet und geprüft. Daher kann es aktuell noch zu Fehlern, unvollständigen Informationen oder technischen Einschränkungen kommen.
+Erkunde die Geschichte von Homberg an der Efze. Diese Route führt dich zu den bedeutendsten Orten der historischen Altstadt – vom wahrhaft alten Neuen Tor über die Stadtkirche, Schauplatz der berühmten Homberger Synode, bis hin zum geheimnisvollen Dörnbergtempel, der einst Zentrum einer Verschwörung war. Entdecke das Hochzeitshaus, in dem die Bürger Hombergs feierten, bestaune das prächtige Rathaus und begegne schließlich dem Denkmal von Landgraf Philipp, einer der prägendsten Persönlichkeiten der Region. Jeder Halt erzählt ein Stück der bewegten Geschichte Hombergs – lebendig, spannend und voller Geschichten.
 
 ## Was kann ich entdecken?
 

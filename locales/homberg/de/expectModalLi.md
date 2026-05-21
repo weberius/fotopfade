@@ -1,14 +1,6 @@
-# Geschichte von Homberg (Efze)
-
 ![Geschichte von Homberg (Efze)](./images/homberg/geschichte.jpg)
 
-Ihr Spaziergang führt auf knapp zwei Kilometern durch die historische Altstadt von Homberg (Efze) beginnt am Neuen Tor, einem der alten Zugänge zur Stadt. Von hier führt der Weg durch die malerische Untergasse bis zum Westheimer Tor und weiter entlang der Westheimer Straße mit Blick auf den traditionsreichen Weißen Hof. Am Löwenhaus biegt der Weg scharf ab und leitet Sie durch die Marktgasse zum ehemaligen Adelssitz der Familie von Bardeleben.
-
-Über das Gebäude der alten Schule erreichen Sie die eindrucksvolle Stadtkirche St. Marien, die zu den bedeutendsten Bauwerken der Stadt zählt. Ein kleiner Schlenker führt zum Dörnbergtempel und zur nahegelegenen Zehntscheune, einem gut erhaltenen mittelalterlichen Wirtschaftsgebäude.
-
-Der Weg verlässt am Hochzeitspförtchen kurz die Altstadt, führt jedoch über den Parkplatz zurück und bietet anschließend die Möglichkeit, das Rathaus sowie das ehemalige landgräfliche Burglehen zu erreichen.
-
-Zurück in der Altstadt erwarten Sie weitere Zeugnisse der Geschichte: die ehemalige Synagoge, das Haus des Schuldheißen, der Pulverturm mit erhaltenem Wehrgang und das gotische Haus. Der Rundgang endet stimmungsvoll am Gasthaus zur Krone unter den historischen Schirnen – einem überdachten Handelsplatz, der bis heute zum Verweilen einlädt.
+Homberg entstand im 12. Jahrhundert strategisch unterhalb der Hohenburg auf einem Basaltkegel und erhielt 1231 Stadtrechte. Die Stadt diente den hessischen Landgrafen zur Sicherung von Handelswegen und im Machtkampf gegen Mainz. Ein zentrales Ereignis war die Homberger Synode 1526, die die Reformation in Hessen beschloss. Nach Zerstörung im Dreißigjährigen Krieg prägt der Wiederaufbau das heutige Fachwerkstadtbild. Homberg trägt heute den Titel "Reformationsstadt".
 
 ## Audio: Was macht Homberg aus?
 

@@ -1,6 +1,6 @@
 ![Homber (Efze)](./images/homberg/start.jpg)
 
-Erkunde die Geschichte von Homberg an der Efze. Diese Route führt dich zu den bedeutendsten Orten der historischen Altstadt – vom wahrhaft alten Neuen Tor über die Stadtkirche, Schauplatz der berühmten Homberger Synode, bis hin zum geheimnisvollen Dörnbergtempel, der einst Zentrum einer Verschwörung war. Entdecke das Hochzeitshaus, in dem die Bürger Hombergs feierten, bestaune das prächtige Rathaus und begegne schließlich dem Denkmal von Landgraf Philipp, einer der prägendsten Persönlichkeiten der Region. Jeder Halt erzählt ein Stück der bewegten Geschichte Hombergs – lebendig, spannend und voller Geschichten.
+Wir heißen dich herzlich willkommen zu deinem Pfad durch die historische Stadt Homberg! Mach dich bereit für eine intensive und spannende Begegnung mit der Vergangenheit. Entdecke die Geheimnisse der mittelalterlichen Altstadt, ihre prägenden Gebäude und die Geschichten, die sie erzählen. Wir laden dich ein, genau hinzusehen, die Augen offen zu halten und die Spuren der Zeit bewusst zu erkunden. Lass dich von Hombergs Charme verzaubern und genieße diese einzigartige Reise!
 
 ## Was kann ich entdecken?
 

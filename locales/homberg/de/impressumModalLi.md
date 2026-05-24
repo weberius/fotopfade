@@ -4,7 +4,7 @@ Wolfram Eberius
 Im Bachfeld 21  
 51063 Köln
 
-## Kontak
+## Kontakt
 
 Telefon: +4917623822294  
 E-Mail: wolfram@eberius.photography

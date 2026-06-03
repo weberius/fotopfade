@@ -13,6 +13,12 @@ Doch Pestseuchen und der Dreißigjährige Krieg dezimierten die Bevölkerung dra
 Heute begeistert Fritzlar mit einem gut erhaltenen mittelalterlichen Stadtbild, dem imposanten Dom und einer vielfältigen Wirtschaft, die von der Bundeswehr bis zur weltweit größten Sauerkrautfabrik reicht.
 
 ## Eine kurze Geschichte Fritzlars
+
+<audio controls class="full-width-audio">
+  <source src="locales/fritzlar/de/geschichte.mp3" type="audio/mpeg">
+  Dein Browser unterstützt kein Audioelement.
+</audio>
+
 ## Quellen
 
 - Informationstafeln Fritzlar

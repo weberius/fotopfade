@@ -19,13 +19,4 @@ Heute begeistert Fritzlar mit einem gut erhaltenen mittelalterlichen Stadtbild, 
   Dein Browser unterstützt kein Audioelement.
 </audio>
 
-## Quellen
-
-- Informationstafeln Fritzlar
-- Wikipedia
-- Fritzlar, Die alte Dom- und Kaiserstadt und ihre Kunstschätze
-- Fritzlar - die mittelalterliche Stadt
-
-## Hinweis
-
 _Die Inhalte wurden unter Einsatz von KI-Werkzeugen erstellt und sorgfältig überprüft. Vereinzelt können Unstimmigkeiten nicht ausgeschlossen werden._

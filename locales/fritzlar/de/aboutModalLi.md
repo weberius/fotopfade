@@ -12,13 +12,6 @@ Ziel ist es mit Smartphone oder Kamera die kulturellen und historischen Spuren d
 
 Die Texte wurden anhand von öffentlich zugänglichen Informationen unter Zuhilfenahme von KI erstellt. Die Fotos wurden durch Wolfram Eberius erstellt.
 
-## Quellen
-
-- Informationstafeln Fritzlar
-- [wikipedia], Wikipedia
-- Fritzlar, Die alte Dom- und Kaiserstadt und ihre Kunstschätze, Rauch/ Katzmann, Tübingen 1974
-- Fritzlar - die mittelalterliche Stadt, Führer durch Geschichte und Architektur, Lohmann, Fritzlar 1987
-
 ## Kontakt
 
 * Entwickler: [Wolfram Eberius] (Webseite)

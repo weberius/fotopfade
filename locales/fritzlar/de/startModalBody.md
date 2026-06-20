@@ -11,9 +11,3 @@ Die günstige geografische Lage dieser Stadt im frühen Mittelalter machte sie z
   Dein Browser unterstützt kein Audioelement.
 </audio>
 
-## Hinweis
-
-- Über das Pfeilsymbol können Sie jederzeit Ihre Position auf der Karte anzeigen lassen.
-- "Route" zeigt Entfernungen zwischen den Sehenswürdigkeiten
-- Unter „About“ finden Sie spannende Hintergrundinformationen zum Projekt.
-- In der „Gallery“ können Sie ganz in Ruhe durch die schönsten Bilder stöbern

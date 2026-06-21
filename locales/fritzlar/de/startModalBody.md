@@ -1,13 +1,10 @@
 ![Fritzlar](./images/fritzlar/p0.jpg)
 
-Tauche ein in 1300 Jahre Geschichte: Von Bonifatius' mutigem Akt an der Donareiche über Kaiser und Kriege bis hin zu charmantem Fachwerk und unerwarteten Wirtschaftswundern. Fritzlar – wo Vergangenheit lebendig wird und überraschende Geschichten warten!
-
-Die günstige geografische Lage dieser Stadt im frühen Mittelalter machte sie zu einem zentralen Knotenpunkt für Verkehr und große politische und religiöse Ereignisse. Ihre frühe Entwicklung ist eng mit der Kirchengründung eines Missionars verbunden, der durch das Fällen einer heiligen Eiche die Christianisierung einleitete. Im Laufe der Jahrhunderte wurde die Stadt immer wieder zum Schauplatz militärischer Konflikte, die zu wiederholten Zerstörungen führten. Diese turbulente Geschichte prägte maßgeblich ihre architektonische Identität, die sich in umfangreichen Verteidigungsanlagen wie Stadtmauern und Türmen manifestierte. Zudem zeugen zahlreiche Sakralbauten sowie historische Fachwerk- und Repräsentativbauten von der anhaltenden Bedeutung und dem ständigen Wiederaufbau dieser stetig wandelnden Siedlung.
-
-## Was kann ich in Korbach entdecken?
+Willkommen in Fritzlar! Dein persönlicher Pfad durch die historische Altstadt beginnt hier. Wir laden dich ein, die spannende Vergangenheit dieser Dom- und Kaiserstadt zu enthüllen. Jedes Gebäude, jede Gasse erzählt eine eigene Geschichte. Halte die Augen offen, nimm dir Zeit und entdecke die Spuren vergangener Epochen. Erlebe Fritzlar nicht nur als Kulisse, sondern als lebendiges Geschichtsbuch, das nur darauf wartet, von dir gelesen zu werden. Viel Vergnügen!
 
 <audio controls class="full-width-audio">
   <source src="locales/fritzlar/de/start.mp3" type="audio/mpeg">
   Dein Browser unterstützt kein Audioelement.
 </audio>
 
+_Die Inhalte wurden unter Einsatz von KI-Werkzeugen erstellt und sorgfältig überprüft. Vereinzelt können Unstimmigkeiten nicht ausgeschlossen werden._

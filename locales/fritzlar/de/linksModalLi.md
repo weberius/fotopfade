@@ -4,5 +4,5 @@ Wenn Ihnen dieser Fotopfad gefallen hat, dann teilen Sie ihn gerne. Unten ist de
 
 ## QR Code dieses Fotopfads
 
-![QR-Code](images/fritzlar/qr-06634005.png)
+![QR-Code](images/fritzlar/qr-fritzlar.png)
 

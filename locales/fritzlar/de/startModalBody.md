@@ -1,4 +1,4 @@
-![Fritzlar](./images/fritzlar/p0.jpg#pano)
+![Fritzlar](./images/fritzlar/p0.jpg)
 
 Tauche ein in 1300 Jahre Geschichte: Von Bonifatius' mutigem Akt an der Donareiche über Kaiser und Kriege bis hin zu charmantem Fachwerk und unerwarteten Wirtschaftswundern. Fritzlar – wo Vergangenheit lebendig wird und überraschende Geschichten warten!
 
@@ -7,7 +7,7 @@ Die günstige geografische Lage dieser Stadt im frühen Mittelalter machte sie z
 ## Was kann ich in Korbach entdecken?
 
 <audio controls class="full-width-audio">
-  <source src="locales/fritzlar/de/p0.mp3" type="audio/mpeg">
+  <source src="locales/fritzlar/de/start.mp3" type="audio/mpeg">
   Dein Browser unterstützt kein Audioelement.
 </audio>
 

@@ -1,4 +1,4 @@
-![Fachwerkhaus](./images/korbach/features.jpg)
+![features](./images/fritzlar/features.jpg)
 
 # Features
 

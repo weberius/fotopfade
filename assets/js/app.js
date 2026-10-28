@@ -196,12 +196,6 @@ var osm = L.tileLayer("https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
-/* CartoDB */
-var cartodb = L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap-Mitwirkende & CARTO'
-});
-
 /* Overlay Layers */
 var highlight = L.geoJson(null);
 var highlightStyle = {
@@ -506,7 +500,7 @@ function loadPoiLayer() {
 map = L.map("map", {
   zoom: 14,
   center: [50.944511,6.849597],
-  layers: [cartodb, routes, markerClusters, highlight],
+  layers: [osm, routes, markerClusters, highlight],
   zoomControl: false,
   attributionControl: false
 });
@@ -644,7 +638,6 @@ if (document.body.clientWidth <= 767) {
 }
 
 var baseLayers = {
-  "CartoDB": cartodb,
   "OSM": osm
 };
 
